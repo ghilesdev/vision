@@ -1,0 +1,5545 @@
+Help on module pypylon.genicam in pypylon:
+
+NAME
+    pypylon.genicam
+
+DESCRIPTION
+    Copyright (C) 2017-2018 Basler AG
+    Redistribution and use in source and binary forms, with or without modification,
+    are permitted provided that the following conditions are met:
+        1. Redistributions of source code must retain the above copyright notice,
+           this list of conditions and the following disclaimer.
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        3. Neither the name of the copyright holder nor the names of its contributors
+           may be used to endorse or promote products derived from this software
+           without specific prior written permission.
+    
+    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+    WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
+    IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+    INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+    BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+    DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+    LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+    OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+    ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+CLASSES
+    builtins.Exception(builtins.BaseException)
+        _genicam.GenericException
+            _genicam.AccessException
+            _genicam.BadAllocException
+            _genicam.DynamicCastException
+            _genicam.InvalidArgumentException
+            _genicam.LogicalErrorException
+            _genicam.OutOfRangeException
+            _genicam.PropertyException
+            _genicam.RuntimeException
+            _genicam.TimeoutException
+    builtins.object
+        AttachStatistics_t
+        CNodeMapRef
+        CPortImpl
+        ChunkAdapter
+            ChunkAdapterGEV
+            ChunkAdapterGeneric
+            ChunkAdapterU3V
+        EAccessModeClass
+        ECachingModeClass
+        EDisplayNotationClass
+        EEndianessClass
+        EInputDirectionClass
+        ENameSpaceClass
+        ERepresentationClass
+        ESignClass
+        ESlopeClass
+        EStandardNameSpaceClass
+        EVisibilityClass
+        EYesNoClass
+        EventAdapter
+            EventAdapterGEV
+            EventAdapterGeneric
+            EventAdapterU3V
+        FileAccess
+        FileProtocolAdapter
+        GVCP_CHUNK_TRAILER
+        IBase
+            INode
+            IPort
+                IChunkPort
+                IPortConstruct
+                    ChunkPort
+                    EventPort
+                IPortReplay
+                    IPortRecorder
+            ISelector
+            IValue
+                IBoolean
+                ICategory
+                ICommand
+                IEnumEntry
+                IEnumeration
+                IFloat
+                IInteger
+                IRegister
+                IString
+        IDeviceInfo
+        IEnumReference
+        INodeMap
+        IPortWriteList
+        IReference
+        ISelectorDigit
+            CSelectorSet
+        PyNodeCallback
+        SingleChunkDataStr_t
+        SingleChunkData_t
+        SwigPyIterator
+        U3V_CHUNK_TRAILER
+        Version
+        ios_base
+            ios
+        node_vector
+        string_vector
+        value_vector
+    
+    class AccessException(GenericException)
+     |  Common base class for all non-exit exceptions.
+     |  
+     |  Method resolution order:
+     |      AccessException
+     |      GenericException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from GenericException:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class AttachStatistics_t(builtins.object)
+     |  Delivers information about the attached chunks and nodes  
+     |  
+     |  C++ includes: ChunkAdapter.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_AttachStatistics_t(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  NumAttachedChunks
+     |  
+     |  NumChunkPorts
+     |  
+     |  NumChunks
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class BadAllocException(GenericException)
+     |  Common base class for all non-exit exceptions.
+     |  
+     |  Method resolution order:
+     |      BadAllocException
+     |      GenericException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from GenericException:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    CChunkAdapter = class ChunkAdapter(builtins.object)
+     |  CChunkAdapter(*args, **kwargs)
+     |  
+     |  Connects a chunked buffer to a node map.  
+     |  
+     |  C++ includes: ChunkAdapter.h
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachBuffer(self, pBuffer: 'uint8_t *', pAttachStatistics: 'AttachStatistics_t' = None) -> 'void'
+     |      Attaches a buffer to the matching ChunkPort.  
+     |      
+     |      Implement that for a specific buffer layout
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  CheckBufferLayout(self, pBuffer: 'uint8_t *') -> 'bool'
+     |      Checks if a buffer contains chunks in a known format.  
+     |      
+     |      Implement that for a specific buffer layout
+     |  
+     |  ClearCaches(self) -> 'void'
+     |      Clears the chunk caches.
+     |  
+     |  DetachBuffer(self) -> 'void'
+     |      Detaches a buffer.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node map.
+     |  
+     |  UpdateBuffer(self, pBaseAddress: 'uint8_t *') -> 'void'
+     |      Updates the base address of the buffer.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_ChunkAdapter(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    CChunkAdapterGEV = class ChunkAdapterGEV(ChunkAdapter)
+     |  CChunkAdapterGEV(pNodeMap: 'INodeMap' = None, MaxChunkCacheSize: 'int64_t' = -1)
+     |  
+     |  Connects a chunked DCAM buffer to a node map.  
+     |  
+     |  C++ includes: ChunkAdapterGEV.h
+     |  
+     |  Method resolution order:
+     |      ChunkAdapterGEV
+     |      ChunkAdapter
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachBuffer(self, pBuffer: 'uint8_t *', pAttachStatistics: 'AttachStatistics_t' = None) -> 'void'
+     |      Attaches a buffer to the matching ChunkPort.
+     |  
+     |  CheckBufferLayout(self, pBuffer: 'uint8_t *') -> 'bool'
+     |      Checks if a buffer contains chunks in a known format.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNodeMap: 'INodeMap' = None, MaxChunkCacheSize: 'int64_t' = -1)
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_ChunkAdapterGEV(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ChunkAdapter:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  ClearCaches(self) -> 'void'
+     |      Clears the chunk caches.
+     |  
+     |  DetachBuffer(self) -> 'void'
+     |      Detaches a buffer.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node map.
+     |  
+     |  UpdateBuffer(self, pBaseAddress: 'uint8_t *') -> 'void'
+     |      Updates the base address of the buffer.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ChunkAdapter:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    CChunkAdapterGeneric = class ChunkAdapterGeneric(ChunkAdapter)
+     |  CChunkAdapterGeneric(pNodeMap: 'INodeMap' = None, MaxChunkCacheSize: 'int64_t' = -1)
+     |  
+     |  Connects a generic chunked buffer to a node map.  
+     |  
+     |  C++ includes: ChunkAdapterGeneric.h
+     |  
+     |  Method resolution order:
+     |      ChunkAdapterGeneric
+     |      ChunkAdapter
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachBuffer(self, *args) -> 'void'
+     |  
+     |  CheckBufferLayout(self, pBuffer: 'uint8_t *') -> 'bool'
+     |      Checks if a buffer contains chunks in a known format.  
+     |      
+     |      Implement that for a specific buffer layout
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNodeMap: 'INodeMap' = None, MaxChunkCacheSize: 'int64_t' = -1)
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_ChunkAdapterGeneric(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ChunkAdapter:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  ClearCaches(self) -> 'void'
+     |      Clears the chunk caches.
+     |  
+     |  DetachBuffer(self) -> 'void'
+     |      Detaches a buffer.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node map.
+     |  
+     |  UpdateBuffer(self, pBaseAddress: 'uint8_t *') -> 'void'
+     |      Updates the base address of the buffer.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ChunkAdapter:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    CChunkAdapterU3V = class ChunkAdapterU3V(ChunkAdapter)
+     |  CChunkAdapterU3V(pNodeMap: 'INodeMap' = None, MaxChunkCacheSize: 'int64_t' = -1)
+     |  
+     |  Connects a chunked U3V buffer to a node map.  
+     |  
+     |  C++ includes: ChunkAdapterU3V.h
+     |  
+     |  Method resolution order:
+     |      ChunkAdapterU3V
+     |      ChunkAdapter
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachBuffer(self, pBuffer: 'uint8_t *', pAttachStatistics: 'AttachStatistics_t' = None) -> 'void'
+     |      Attaches a buffer to the matching ChunkPort.
+     |  
+     |  CheckBufferLayout(self, pBuffer: 'uint8_t *') -> 'bool'
+     |      Checks if a buffer contains chunks in a known format.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNodeMap: 'INodeMap' = None, MaxChunkCacheSize: 'int64_t' = -1)
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_ChunkAdapterU3V(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ChunkAdapter:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  ClearCaches(self) -> 'void'
+     |      Clears the chunk caches.
+     |  
+     |  DetachBuffer(self) -> 'void'
+     |      Detaches a buffer.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node map.
+     |  
+     |  UpdateBuffer(self, pBaseAddress: 'uint8_t *') -> 'void'
+     |      Updates the base address of the buffer.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ChunkAdapter:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    CChunkPort = class ChunkPort(IPortConstruct)
+     |  CChunkPort(pPort: 'IPort' = None)
+     |  
+     |  Port attachable to a chunk in a buffer.  
+     |  
+     |  C++ includes: ChunkPort.h
+     |  
+     |  Method resolution order:
+     |      ChunkPort
+     |      IPortConstruct
+     |      IPort
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachChunk(self, pBaseAddress: 'uint8_t *', ChunkOffset: 'int64_t', Length: 'int64_t', Cache: 'bool') -> 'void'
+     |      Attaches the Chunk to the ChunkPort.
+     |  
+     |  AttachPort(self, pPort: 'IPort') -> 'bool'
+     |      Attaches the ChunkPort to the Port.
+     |  
+     |  CheckChunkID(self, *args) -> 'bool'
+     |      Checks if a ChunkID matches, version using uint64_t ID representation.
+     |  
+     |  ClearCache(self) -> 'void'
+     |      Clears the chunk cache.
+     |  
+     |  DetachChunk(self) -> 'void'
+     |      Detaches the Chunk from the ChunkPort.
+     |  
+     |  DetachPort(self) -> 'void'
+     |      Detaches the ChunkPort to the Port.
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |      Get the access mode of the node.
+     |  
+     |  GetChunkIDLength(self) -> 'int'
+     |      Gets the ChunkID length.
+     |  
+     |  GetPrincipalInterfaceType(self) -> 'GENAPI_NAMESPACE::EInterfaceType'
+     |      Get the type of the main interface of a node.
+     |  
+     |  GetSwapEndianess(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |      Determines if the port adapter must perform an endianess swap.
+     |  
+     |  InvalidateNode(self) -> 'void'
+     |  
+     |  Read(self, pBuffer: 'void *', Address: 'int64_t', Length: 'int64_t') -> 'void'
+     |      Reads a chunk of bytes from the port.
+     |  
+     |  SetPortImpl(self, pPort: 'IPort') -> 'void'
+     |      Called from the port node to give the chunk port a pointer to itself.
+     |  
+     |  UpdateBuffer(self, pBaseAddress: 'uint8_t *') -> 'void'
+     |      Updates the base address of the chunk.
+     |  
+     |  Write(self, pBuffer: 'void const *', Address: 'int64_t', Length: 'int64_t') -> 'void'
+     |      Writes a chunk of bytes to the port.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pPort: 'IPort' = None)
+     |      Constructor; can attach to a port.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_ChunkPort(...)
+     |      Destructor; detaches from the port.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  AccessMode
+     |      Get the access mode of the node.
+     |  
+     |  PrincipalInterfaceType
+     |      Get the type of the main interface of a node.
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IPort:
+     |  
+     |  CacheChunkData(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  GetChunkID(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IPort:
+     |  
+     |  ChunkID
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    CEventAdapter = class EventAdapter(builtins.object)
+     |  CEventAdapter(*args, **kwargs)
+     |  
+     |  Delivers Events to ports.  
+     |  
+     |  C++ includes: EventAdapter.h
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  DeliverMessage(self, msg: 'uint8_t const []') -> 'void'
+     |      Deliver message.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node emap.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_EventAdapter(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    CEventAdapterGEV = class EventAdapterGEV(EventAdapter)
+     |  CEventAdapterGEV(pNodeMap: 'INodeMap' = None)
+     |  
+     |  Connects a GigE Event to a node map.  
+     |  
+     |  C++ includes: EventAdapterGEV.h
+     |  
+     |  Method resolution order:
+     |      EventAdapterGEV
+     |      EventAdapter
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  DeliverMessage(self, msg: 'uint8_t const []') -> 'void'
+     |      Deliver message.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNodeMap: 'INodeMap' = None)
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_EventAdapterGEV(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from EventAdapter:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node emap.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from EventAdapter:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    CEventAdapterGeneric = class EventAdapterGeneric(EventAdapter)
+     |  CEventAdapterGeneric(pNodeMap: 'INodeMap' = None)
+     |  
+     |  Connects a generic event to a node map.  
+     |  
+     |  C++ includes: EventAdapterGeneric.h
+     |  
+     |  Method resolution order:
+     |      EventAdapterGeneric
+     |      EventAdapter
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  DeliverMessage(self, *args) -> 'void'
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNodeMap: 'INodeMap' = None)
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_EventAdapterGeneric(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from EventAdapter:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node emap.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from EventAdapter:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    CEventAdapterU3V = class EventAdapterU3V(EventAdapter)
+     |  CEventAdapterU3V(pNodeMap: 'INodeMap' = None)
+     |  
+     |  Connects a U3V Event to a node map.  
+     |  
+     |  C++ includes: EventAdapterU3V.h
+     |  
+     |  Method resolution order:
+     |      EventAdapterU3V
+     |      EventAdapter
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  DeliverMessage(self, msg: 'uint8_t const []') -> 'void'
+     |      Deliver message.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNodeMap: 'INodeMap' = None)
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_EventAdapterU3V(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from EventAdapter:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node emap.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from EventAdapter:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    CEventPort = class EventPort(IPortConstruct)
+     |  CEventPort(pNode: 'INode' = None)
+     |  
+     |  Port attachable to an event.  
+     |  
+     |  C++ includes: EventPort.h
+     |  
+     |  Method resolution order:
+     |      EventPort
+     |      IPortConstruct
+     |      IPort
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachEvent(self, pBaseAddress: 'uint8_t *', Length: 'int64_t') -> 'void'
+     |      Attaches the an Event to the EventPort.
+     |  
+     |  AttachNode(self, pNode: 'INode') -> 'bool'
+     |      Attaches to the Node.
+     |  
+     |  CheckEventID(self, *args) -> 'bool'
+     |      Checks if a EventID matches, version using uint64_t ID representation.
+     |  
+     |  DetachEvent(self) -> 'void'
+     |      Detaches the Event from the EventPort.
+     |  
+     |  DetachNode(self) -> 'void'
+     |      Detaches from the Node.
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |      Get the access mode of the node.
+     |  
+     |  GetEventIDLength(self) -> 'int'
+     |      Gets the EventID length.
+     |  
+     |  GetPrincipalInterfaceType(self) -> 'GENAPI_NAMESPACE::EInterfaceType'
+     |      Get the type of the main interface of a node.
+     |  
+     |  GetSwapEndianess(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |      Determines if the port adapter must perform an endianess swap.
+     |  
+     |  InvalidateNode(self) -> 'void'
+     |  
+     |  Read(self, pBuffer: 'void *', Address: 'int64_t', Length: 'int64_t') -> 'void'
+     |      Reads a chunk of bytes from the port.
+     |  
+     |  SetPortImpl(self, pPort: 'IPort') -> 'void'
+     |      Called from the port node to give the chunk port a pointer to itself.
+     |  
+     |  Write(self, pBuffer: 'void const *', Address: 'int64_t', Length: 'int64_t') -> 'void'
+     |      Writes a chunk of bytes to the port.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNode: 'INode' = None)
+     |      Constructor; can attach to a node.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_EventPort(...)
+     |      Destructor; detaches from the port.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IPort:
+     |  
+     |  CacheChunkData(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  GetChunkID(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IPort:
+     |  
+     |  ChunkID
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class CNodeMapRef(builtins.object)
+     |  CNodeMapRef(*args)
+     |  
+     |  Smartpointer for NodeMaps with create function.  
+     |  
+     |  note: This class is a simple typedef definition. The class syntax is only used,
+     |      because Doxygen has to generate a useful documentation.  
+     |  
+     |  C++ includes: NodeMapRef.h
+     |  
+     |  Methods defined here:
+     |  
+     |  GetDeviceInfo(self) -> 'GENAPI_NAMESPACE::IDeviceInfo *'
+     |  
+     |  GetNode(self, key: 'GENICAM_NAMESPACE::gcstring const &') -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  __del__ lambda self
+     |  
+     |  __dir__(self)
+     |      Default dir() implementation.
+     |  
+     |  __getattr__(self, attribute)
+     |  
+     |  __init__(self, *args)
+     |      Copy constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  __setattr__(self, attribute, val)
+     |      Implement setattr(self, name, value).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_CNodeMapRef(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  DeviceInfo
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class CPortImpl(builtins.object)
+     |  Methods defined here:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |      Get the access mode of the node.  
+     |      
+     |      Driver closed => NI, Driver open => RW, analysing a struct, RO
+     |  
+     |  InvalidateNode(self) -> 'void'
+     |  
+     |  Read(self, Address: 'int64_t', pBuffer: 'void *') -> 'void'
+     |  
+     |  Write(self, Address: 'int64_t', pBuffer: 'void const *') -> 'void'
+     |  
+     |  __del__ lambda self
+     |  
+     |  __disown__(self)
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_CPortImpl(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class CSelectorSet(ISelectorDigit)
+     |  CSelectorSet(pBase: 'IBase')
+     |  
+     |  The set of selectors selecting a given node.  
+     |  
+     |  C++ includes: SelectorSet.h
+     |  
+     |  Method resolution order:
+     |      CSelectorSet
+     |      ISelectorDigit
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  GetSelectorList(self, Incremental: 'bool' = False) -> 'void'
+     |  
+     |  IsEmpty(self) -> 'bool'
+     |      returns true if no selectors are present
+     |  
+     |  Restore(self) -> 'void'
+     |  
+     |  SetFirst(self) -> 'bool'
+     |  
+     |  SetNext(self, Tick: 'bool' = True) -> 'bool'
+     |  
+     |  ToString(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pBase: 'IBase')
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_CSelectorSet(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ISelectorDigit:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ChunkAdapter(builtins.object)
+     |  ChunkAdapter(*args, **kwargs)
+     |  
+     |  Connects a chunked buffer to a node map.  
+     |  
+     |  C++ includes: ChunkAdapter.h
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachBuffer(self, pBuffer: 'uint8_t *', pAttachStatistics: 'AttachStatistics_t' = None) -> 'void'
+     |      Attaches a buffer to the matching ChunkPort.  
+     |      
+     |      Implement that for a specific buffer layout
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  CheckBufferLayout(self, pBuffer: 'uint8_t *') -> 'bool'
+     |      Checks if a buffer contains chunks in a known format.  
+     |      
+     |      Implement that for a specific buffer layout
+     |  
+     |  ClearCaches(self) -> 'void'
+     |      Clears the chunk caches.
+     |  
+     |  DetachBuffer(self) -> 'void'
+     |      Detaches a buffer.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node map.
+     |  
+     |  UpdateBuffer(self, pBaseAddress: 'uint8_t *') -> 'void'
+     |      Updates the base address of the buffer.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_ChunkAdapter(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class ChunkAdapterGEV(ChunkAdapter)
+     |  ChunkAdapterGEV(pNodeMap: 'INodeMap' = None, MaxChunkCacheSize: 'int64_t' = -1)
+     |  
+     |  Connects a chunked DCAM buffer to a node map.  
+     |  
+     |  C++ includes: ChunkAdapterGEV.h
+     |  
+     |  Method resolution order:
+     |      ChunkAdapterGEV
+     |      ChunkAdapter
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachBuffer(self, pBuffer: 'uint8_t *', pAttachStatistics: 'AttachStatistics_t' = None) -> 'void'
+     |      Attaches a buffer to the matching ChunkPort.
+     |  
+     |  CheckBufferLayout(self, pBuffer: 'uint8_t *') -> 'bool'
+     |      Checks if a buffer contains chunks in a known format.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNodeMap: 'INodeMap' = None, MaxChunkCacheSize: 'int64_t' = -1)
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_ChunkAdapterGEV(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ChunkAdapter:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  ClearCaches(self) -> 'void'
+     |      Clears the chunk caches.
+     |  
+     |  DetachBuffer(self) -> 'void'
+     |      Detaches a buffer.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node map.
+     |  
+     |  UpdateBuffer(self, pBaseAddress: 'uint8_t *') -> 'void'
+     |      Updates the base address of the buffer.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ChunkAdapter:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ChunkAdapterGeneric(ChunkAdapter)
+     |  ChunkAdapterGeneric(pNodeMap: 'INodeMap' = None, MaxChunkCacheSize: 'int64_t' = -1)
+     |  
+     |  Connects a generic chunked buffer to a node map.  
+     |  
+     |  C++ includes: ChunkAdapterGeneric.h
+     |  
+     |  Method resolution order:
+     |      ChunkAdapterGeneric
+     |      ChunkAdapter
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachBuffer(self, *args) -> 'void'
+     |  
+     |  CheckBufferLayout(self, pBuffer: 'uint8_t *') -> 'bool'
+     |      Checks if a buffer contains chunks in a known format.  
+     |      
+     |      Implement that for a specific buffer layout
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNodeMap: 'INodeMap' = None, MaxChunkCacheSize: 'int64_t' = -1)
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_ChunkAdapterGeneric(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ChunkAdapter:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  ClearCaches(self) -> 'void'
+     |      Clears the chunk caches.
+     |  
+     |  DetachBuffer(self) -> 'void'
+     |      Detaches a buffer.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node map.
+     |  
+     |  UpdateBuffer(self, pBaseAddress: 'uint8_t *') -> 'void'
+     |      Updates the base address of the buffer.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ChunkAdapter:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ChunkAdapterU3V(ChunkAdapter)
+     |  ChunkAdapterU3V(pNodeMap: 'INodeMap' = None, MaxChunkCacheSize: 'int64_t' = -1)
+     |  
+     |  Connects a chunked U3V buffer to a node map.  
+     |  
+     |  C++ includes: ChunkAdapterU3V.h
+     |  
+     |  Method resolution order:
+     |      ChunkAdapterU3V
+     |      ChunkAdapter
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachBuffer(self, pBuffer: 'uint8_t *', pAttachStatistics: 'AttachStatistics_t' = None) -> 'void'
+     |      Attaches a buffer to the matching ChunkPort.
+     |  
+     |  CheckBufferLayout(self, pBuffer: 'uint8_t *') -> 'bool'
+     |      Checks if a buffer contains chunks in a known format.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNodeMap: 'INodeMap' = None, MaxChunkCacheSize: 'int64_t' = -1)
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_ChunkAdapterU3V(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ChunkAdapter:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  ClearCaches(self) -> 'void'
+     |      Clears the chunk caches.
+     |  
+     |  DetachBuffer(self) -> 'void'
+     |      Detaches a buffer.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node map.
+     |  
+     |  UpdateBuffer(self, pBaseAddress: 'uint8_t *') -> 'void'
+     |      Updates the base address of the buffer.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ChunkAdapter:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ChunkPort(IPortConstruct)
+     |  ChunkPort(pPort: 'IPort' = None)
+     |  
+     |  Port attachable to a chunk in a buffer.  
+     |  
+     |  C++ includes: ChunkPort.h
+     |  
+     |  Method resolution order:
+     |      ChunkPort
+     |      IPortConstruct
+     |      IPort
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachChunk(self, pBaseAddress: 'uint8_t *', ChunkOffset: 'int64_t', Length: 'int64_t', Cache: 'bool') -> 'void'
+     |      Attaches the Chunk to the ChunkPort.
+     |  
+     |  AttachPort(self, pPort: 'IPort') -> 'bool'
+     |      Attaches the ChunkPort to the Port.
+     |  
+     |  CheckChunkID(self, *args) -> 'bool'
+     |      Checks if a ChunkID matches, version using uint64_t ID representation.
+     |  
+     |  ClearCache(self) -> 'void'
+     |      Clears the chunk cache.
+     |  
+     |  DetachChunk(self) -> 'void'
+     |      Detaches the Chunk from the ChunkPort.
+     |  
+     |  DetachPort(self) -> 'void'
+     |      Detaches the ChunkPort to the Port.
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |      Get the access mode of the node.
+     |  
+     |  GetChunkIDLength(self) -> 'int'
+     |      Gets the ChunkID length.
+     |  
+     |  GetPrincipalInterfaceType(self) -> 'GENAPI_NAMESPACE::EInterfaceType'
+     |      Get the type of the main interface of a node.
+     |  
+     |  GetSwapEndianess(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |      Determines if the port adapter must perform an endianess swap.
+     |  
+     |  InvalidateNode(self) -> 'void'
+     |  
+     |  Read(self, pBuffer: 'void *', Address: 'int64_t', Length: 'int64_t') -> 'void'
+     |      Reads a chunk of bytes from the port.
+     |  
+     |  SetPortImpl(self, pPort: 'IPort') -> 'void'
+     |      Called from the port node to give the chunk port a pointer to itself.
+     |  
+     |  UpdateBuffer(self, pBaseAddress: 'uint8_t *') -> 'void'
+     |      Updates the base address of the chunk.
+     |  
+     |  Write(self, pBuffer: 'void const *', Address: 'int64_t', Length: 'int64_t') -> 'void'
+     |      Writes a chunk of bytes to the port.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pPort: 'IPort' = None)
+     |      Constructor; can attach to a port.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_ChunkPort(...)
+     |      Destructor; detaches from the port.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  AccessMode
+     |      Get the access mode of the node.
+     |  
+     |  PrincipalInterfaceType
+     |      Get the type of the main interface of a node.
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IPort:
+     |  
+     |  CacheChunkData(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  GetChunkID(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IPort:
+     |  
+     |  ChunkID
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class DynamicCastException(GenericException)
+     |  Common base class for all non-exit exceptions.
+     |  
+     |  Method resolution order:
+     |      DynamicCastException
+     |      GenericException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from GenericException:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class EAccessModeClass(builtins.object)
+     |  EAccessModeClass holds conversion methods for the access mode enumeration.  
+     |  
+     |  C++ includes: EnumClasses.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EAccessMode *') -> 'GENICAM_NAMESPACE::gcstring const &'
+     |      Converts a string to enum value.
+     |  
+     |  ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Converts a string to an int32_t property.
+     |  
+     |  __swig_destroy__ = delete_EAccessModeClass(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class ECachingModeClass(builtins.object)
+     |  ECachingModeClass holds conversion methods for the caching mode enumeration.  
+     |  
+     |  C++ includes: EnumClasses.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::ECachingMode *') -> 'GENICAM_NAMESPACE::gcstring const &'
+     |      Converts a string to enum value.
+     |  
+     |  ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Converts a string to an int32_t property.
+     |  
+     |  __swig_destroy__ = delete_ECachingModeClass(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class EDisplayNotationClass(builtins.object)
+     |  Holds conversion methods for the notation type of floats.  
+     |  
+     |  C++ includes: EnumClasses.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EDisplayNotation *') -> 'GENICAM_NAMESPACE::gcstring const &'
+     |      Converts a string to enum value.
+     |  
+     |  ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Converts a string to an int32_t property.
+     |  
+     |  __swig_destroy__ = delete_EDisplayNotationClass(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class EEndianessClass(builtins.object)
+     |  EEndianessClass holds conversion methods for the endianess enumeration.  
+     |  
+     |  C++ includes: EnumClasses.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EEndianess *') -> 'GENICAM_NAMESPACE::gcstring const &'
+     |      Converts a string to enum value.
+     |  
+     |  ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Converts a string to an int32_t property.
+     |  
+     |  __swig_destroy__ = delete_EEndianessClass(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class EInputDirectionClass(builtins.object)
+     |  Holds conversion methods for the notation type of floats.  
+     |  
+     |  C++ includes: EnumClasses.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EInputDirection *') -> 'GENICAM_NAMESPACE::gcstring const &'
+     |      Converts a string to enum value.
+     |  
+     |  ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Converts a string to an int32_t property.
+     |  
+     |  __swig_destroy__ = delete_EInputDirectionClass(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class ENameSpaceClass(builtins.object)
+     |  Holds conversion methods for the namespace enumeration.  
+     |  
+     |  C++ includes: EnumClasses.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::ENameSpace *') -> 'GENICAM_NAMESPACE::gcstring const &'
+     |      Converts a string to enum value.
+     |  
+     |  ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Converts a string to an int32_t property.
+     |  
+     |  __swig_destroy__ = delete_ENameSpaceClass(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class ERepresentationClass(builtins.object)
+     |  ERepresentationClass holds conversion methods for the representation
+     |  enumeration.  
+     |  
+     |  C++ includes: EnumClasses.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::ERepresentation *') -> 'GENICAM_NAMESPACE::gcstring const &'
+     |      Converts a string to enum value.
+     |  
+     |  ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Converts a string to an int32_t property.
+     |  
+     |  __swig_destroy__ = delete_ERepresentationClass(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class ESignClass(builtins.object)
+     |  ESignClass holds conversion methods for the sign enumeration.  
+     |  
+     |  C++ includes: EnumClasses.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::ESign *') -> 'GENICAM_NAMESPACE::gcstring const &'
+     |      Converts a string to enum value.
+     |  
+     |  ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Converts a string to an int32_t property.
+     |  
+     |  __swig_destroy__ = delete_ESignClass(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class ESlopeClass(builtins.object)
+     |  Holds conversion methods for the converter formulas.  
+     |  
+     |  C++ includes: EnumClasses.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::ESlope *') -> 'GENICAM_NAMESPACE::gcstring const &'
+     |      Converts a string to enum value.
+     |  
+     |  ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Converts a string to an int32_t property.
+     |  
+     |  __swig_destroy__ = delete_ESlopeClass(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class EStandardNameSpaceClass(builtins.object)
+     |  Holds conversion methods for the standard namespace enumeration.  
+     |  
+     |  C++ includes: EnumClasses.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EStandardNameSpace *') -> 'GENICAM_NAMESPACE::gcstring const &'
+     |      Converts a string to enum value.
+     |  
+     |  ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Converts a string to an int32_t property.
+     |  
+     |  __swig_destroy__ = delete_EStandardNameSpaceClass(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class EVisibilityClass(builtins.object)
+     |  EVisibilityClass holds conversion methods for the visibility enumeration.  
+     |  
+     |  C++ includes: EnumClasses.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EVisibility *') -> 'GENICAM_NAMESPACE::gcstring const &'
+     |      Converts a string to enum value.
+     |  
+     |  ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Converts a string to an int32_t property.
+     |  
+     |  __swig_destroy__ = delete_EVisibilityClass(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class EYesNoClass(builtins.object)
+     |  Holds conversion methods for the standard namespace enumeration.  
+     |  
+     |  C++ includes: EnumClasses.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EYesNo *') -> 'GENICAM_NAMESPACE::gcstring const &'
+     |      Converts a string to enum value.
+     |  
+     |  ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Converts a string to an int32_t property.
+     |  
+     |  __swig_destroy__ = delete_EYesNoClass(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class EventAdapter(builtins.object)
+     |  EventAdapter(*args, **kwargs)
+     |  
+     |  Delivers Events to ports.  
+     |  
+     |  C++ includes: EventAdapter.h
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  DeliverMessage(self, msg: 'uint8_t const []') -> 'void'
+     |      Deliver message.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node emap.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_EventAdapter(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class EventAdapterGEV(EventAdapter)
+     |  EventAdapterGEV(pNodeMap: 'INodeMap' = None)
+     |  
+     |  Connects a GigE Event to a node map.  
+     |  
+     |  C++ includes: EventAdapterGEV.h
+     |  
+     |  Method resolution order:
+     |      EventAdapterGEV
+     |      EventAdapter
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  DeliverMessage(self, msg: 'uint8_t const []') -> 'void'
+     |      Deliver message.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNodeMap: 'INodeMap' = None)
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_EventAdapterGEV(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from EventAdapter:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node emap.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from EventAdapter:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EventAdapterGeneric(EventAdapter)
+     |  EventAdapterGeneric(pNodeMap: 'INodeMap' = None)
+     |  
+     |  Connects a generic event to a node map.  
+     |  
+     |  C++ includes: EventAdapterGeneric.h
+     |  
+     |  Method resolution order:
+     |      EventAdapterGeneric
+     |      EventAdapter
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  DeliverMessage(self, *args) -> 'void'
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNodeMap: 'INodeMap' = None)
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_EventAdapterGeneric(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from EventAdapter:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node emap.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from EventAdapter:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EventAdapterU3V(EventAdapter)
+     |  EventAdapterU3V(pNodeMap: 'INodeMap' = None)
+     |  
+     |  Connects a U3V Event to a node map.  
+     |  
+     |  C++ includes: EventAdapterU3V.h
+     |  
+     |  Method resolution order:
+     |      EventAdapterU3V
+     |      EventAdapter
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  DeliverMessage(self, msg: 'uint8_t const []') -> 'void'
+     |      Deliver message.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNodeMap: 'INodeMap' = None)
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_EventAdapterU3V(...)
+     |      Destructor.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from EventAdapter:
+     |  
+     |  AttachNodeMap(self, pNodeMap: 'INodeMap') -> 'void'
+     |      Attaches to a node map and retrieves the chunk ports.
+     |  
+     |  DetachNodeMap(self) -> 'void'
+     |      Detaches from the node emap.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from EventAdapter:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class EventPort(IPortConstruct)
+     |  EventPort(pNode: 'INode' = None)
+     |  
+     |  Port attachable to an event.  
+     |  
+     |  C++ includes: EventPort.h
+     |  
+     |  Method resolution order:
+     |      EventPort
+     |      IPortConstruct
+     |      IPort
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  AttachEvent(self, pBaseAddress: 'uint8_t *', Length: 'int64_t') -> 'void'
+     |      Attaches the an Event to the EventPort.
+     |  
+     |  AttachNode(self, pNode: 'INode') -> 'bool'
+     |      Attaches to the Node.
+     |  
+     |  CheckEventID(self, *args) -> 'bool'
+     |      Checks if a EventID matches, version using uint64_t ID representation.
+     |  
+     |  DetachEvent(self) -> 'void'
+     |      Detaches the Event from the EventPort.
+     |  
+     |  DetachNode(self) -> 'void'
+     |      Detaches from the Node.
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |      Get the access mode of the node.
+     |  
+     |  GetEventIDLength(self) -> 'int'
+     |      Gets the EventID length.
+     |  
+     |  GetPrincipalInterfaceType(self) -> 'GENAPI_NAMESPACE::EInterfaceType'
+     |      Get the type of the main interface of a node.
+     |  
+     |  GetSwapEndianess(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |      Determines if the port adapter must perform an endianess swap.
+     |  
+     |  InvalidateNode(self) -> 'void'
+     |  
+     |  Read(self, pBuffer: 'void *', Address: 'int64_t', Length: 'int64_t') -> 'void'
+     |      Reads a chunk of bytes from the port.
+     |  
+     |  SetPortImpl(self, pPort: 'IPort') -> 'void'
+     |      Called from the port node to give the chunk port a pointer to itself.
+     |  
+     |  Write(self, pBuffer: 'void const *', Address: 'int64_t', Length: 'int64_t') -> 'void'
+     |      Writes a chunk of bytes to the port.
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNode: 'INode' = None)
+     |      Constructor; can attach to a node.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_EventPort(...)
+     |      Destructor; detaches from the port.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IPort:
+     |  
+     |  CacheChunkData(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  GetChunkID(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IPort:
+     |  
+     |  ChunkID
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class FileAccess(builtins.object)
+     |  FileAccess(read_bufsize=4096)
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, read_bufsize=4096)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  close(self)
+     |  
+     |  open(self, nodemap, filename, openmode)
+     |  
+     |  read(self, size=-1)
+     |  
+     |  write(self, data)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class FileProtocolAdapter(builtins.object)
+     |  Adapter between the std::iostreambuf and the SFNC Features representing the
+     |  device filesystem.  
+     |  
+     |  Adapter between the std::iostreambuf and the SFNC Features representing the
+     |  device filesystem The adapter assumes, that the features provide stdio
+     |  fileaccess compatible semantic  
+     |  
+     |  C++ includes: Filestream.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Constructor.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  attach(self, pInterface: 'INodeMap') -> 'bool'
+     |      attach file protocol adapter to nodemap  
+     |      
+     |      Parameters
+     |      ----------
+     |      * `pInterface` :  
+     |          NodeMap of the device to which the FileProtocolAdapter is attached  
+     |      
+     |      Returns
+     |      -------
+     |      true if attach was successful, false if not
+     |  
+     |  closeFile(self, pFileName: 'char const *') -> 'bool'
+     |      close a file on the device  
+     |      
+     |      Parameters
+     |      ----------
+     |      * `pFileName` :  
+     |          filename of the file to open. The filename must exist in the Enumeration
+     |          FileSelector  
+     |      
+     |      Returns
+     |      -------
+     |      true on success, false on error
+     |  
+     |  deleteFile(self, pFileName: 'char const *') -> 'bool'
+     |      Delete the content of the file.  
+     |      
+     |      Parameters
+     |      ----------
+     |      * `pFileName` :  
+     |          filename of the file to open. The filename must exist in the Enumeration
+     |          FileSelector  
+     |      
+     |      Returns
+     |      -------
+     |      true on success, false on error
+     |  
+     |  getBufSize(self, pFileName: 'char const *', mode: 'char const *') -> 'int64_t'
+     |      fetch max FileAccessBuffer length for a file  
+     |      
+     |      Parameters
+     |      ----------
+     |      * `pFileName` :  
+     |          filename of the file to open. The filename must exist in the Enumeration
+     |          FileSelector  
+     |      * `mode` :  
+     |          mode to open the file. The mode must exist in the Enunmeration FileOpenMode  
+     |      
+     |      Returns
+     |      -------
+     |      max length of FileAccessBuffer in the given mode on the given file
+     |  
+     |  openFile(self, pFileName: 'char const *', mode: 'char const *') -> 'bool'
+     |      open a file on the device  
+     |      
+     |      Parameters
+     |      ----------
+     |      * `pFileName` :  
+     |          filename of the file to open. The filename must exist in the Enumeration
+     |          FileSelector  
+     |      * `mode` :  
+     |          mode to open the file. The mode must exist in the Enumeration FileOpenMode  
+     |      
+     |      Returns
+     |      -------
+     |      true on success, false on error
+     |  
+     |  read(self, pBuffer: 'char *', offs: 'int64_t', pFileName: 'char const *') -> 'std::streamsize'
+     |      read data from the device into a buffer  
+     |      
+     |      Parameters
+     |      ----------
+     |      * `buf` :  
+     |          target buffer  
+     |      * `offs` :  
+     |          offset in the device file to read from  
+     |      * `len` :  
+     |          count of bytes to read  
+     |      * `pFileName` :  
+     |          filename of the file to write into The filename must exist in the
+     |          Enumeration FileSelector  
+     |      
+     |      Returns
+     |      -------
+     |      count of bytes successfully read
+     |  
+     |  write(self, pBuffer: 'char const *', offs: 'int64_t', pFileName: 'char const *') -> 'std::streamsize'
+     |      writes data into a file.  
+     |      
+     |      Parameters
+     |      ----------
+     |      * `buf` :  
+     |          source buffer  
+     |      * `offs` :  
+     |          offset into the device file  
+     |      * `len` :  
+     |          count of bytes to write  
+     |      * `pFileName` :  
+     |          filename of the file to write into The filename must exist in the
+     |          Enumeration FileSelector  
+     |      
+     |      Returns
+     |      -------
+     |      count of bytes written
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_FileProtocolAdapter(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class GVCP_CHUNK_TRAILER(builtins.object)
+     |  header of a GVCP request packet  
+     |  
+     |  C++ includes: ChunkAdapterGEV.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_GVCP_CHUNK_TRAILER(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  ChunkID
+     |  
+     |  ChunkLength
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class GenericException(builtins.Exception)
+     |  Common base class for all non-exit exceptions.
+     |  
+     |  Method resolution order:
+     |      GenericException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors defined here:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class IBase(builtins.object)
+     |  IBase(*args, **kwargs)
+     |  
+     |  Methods defined here:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class IBoolean(IValue)
+     |  IBoolean(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      IBoolean
+     |      IValue
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  GetValue(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'bool'
+     |  
+     |  SetValue(self, Value: 'bool', Verify: 'bool' = True) -> 'void'
+     |  
+     |  __call__(self) -> 'bool'
+     |      Call self as a function.
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  Value
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IValue:
+     |  
+     |  FromString(self, ValueStr: 'GENICAM_NAMESPACE::gcstring const &', Verify: 'bool' = True) -> 'void'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  IsValueCacheValid(self) -> 'bool'
+     |  
+     |  ToString(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IValue:
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ICategory(IValue)
+     |  ICategory(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      ICategory
+     |      IValue
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  GetFeatures(self) -> 'void'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  Features
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IValue:
+     |  
+     |  FromString(self, ValueStr: 'GENICAM_NAMESPACE::gcstring const &', Verify: 'bool' = True) -> 'void'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  IsValueCacheValid(self) -> 'bool'
+     |  
+     |  ToString(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IValue:
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IChunkPort(IPort)
+     |  IChunkPort(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      IChunkPort
+     |      IPort
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  CacheChunkData(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  GetChunkID(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IPort:
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  GetSwapEndianess(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  Read(self, Address: 'int64_t', pBuffer: 'void *') -> 'void'
+     |  
+     |  Write(self, Address: 'int64_t', pBuffer: 'void const *') -> 'void'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IPort:
+     |  
+     |  ChunkID
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ICommand(IValue)
+     |  ICommand(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      ICommand
+     |      IValue
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  Execute(self, Verify: 'bool' = True) -> 'void'
+     |  
+     |  IsDone(self, Verify: 'bool' = True) -> 'bool'
+     |  
+     |  __call__(self) -> 'void'
+     |      Call self as a function.
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IValue:
+     |  
+     |  FromString(self, ValueStr: 'GENICAM_NAMESPACE::gcstring const &', Verify: 'bool' = True) -> 'void'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  IsValueCacheValid(self) -> 'bool'
+     |  
+     |  ToString(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IValue:
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IDeviceInfo(builtins.object)
+     |  IDeviceInfo(*args, **kwargs)
+     |  
+     |  Methods defined here:
+     |  
+     |  GetDeviceVersion(self) -> 'void'
+     |  
+     |  GetGenApiVersion(self) -> 'void'
+     |  
+     |  GetModelName(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetProductGuid(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetSchemaVersion(self) -> 'void'
+     |  
+     |  GetStandardNameSpace(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetToolTip(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetVendorName(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetVersionGuid(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class IEnumEntry(IValue)
+     |  IEnumEntry(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      IEnumEntry
+     |      IValue
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  GetNumericValue(self) -> 'double'
+     |  
+     |  GetSymbolic(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetValue(self) -> 'int64_t'
+     |  
+     |  IsSelfClearing(self) -> 'bool'
+     |  
+     |  __call__(self)
+     |      Call self as a function.
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  NumericValue
+     |  
+     |  Symbolic
+     |  
+     |  Value
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IValue:
+     |  
+     |  FromString(self, ValueStr: 'GENICAM_NAMESPACE::gcstring const &', Verify: 'bool' = True) -> 'void'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  IsValueCacheValid(self) -> 'bool'
+     |  
+     |  ToString(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IValue:
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IEnumReference(builtins.object)
+     |  IEnumReference(*args, **kwargs)
+     |  
+     |  Methods defined here:
+     |  
+     |  SetEnumReference(self, Index: 'int', Name: 'GENICAM_NAMESPACE::gcstring') -> 'void'
+     |  
+     |  SetNumEnums(self, NumEnums: 'int') -> 'void'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class IEnumeration(IValue)
+     |  IEnumeration(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      IEnumeration
+     |      IValue
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  GetCurrentEntry(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'GENAPI_NAMESPACE::IEnumEntry *'
+     |  
+     |  GetEntries(self) -> 'void'
+     |  
+     |  GetEntry(self, IntValue: 'int64_t const') -> 'GENAPI_NAMESPACE::IEnumEntry *'
+     |  
+     |  GetEntryByName(self, Symbolic: 'GENICAM_NAMESPACE::gcstring const &') -> 'GENAPI_NAMESPACE::IEnumEntry *'
+     |  
+     |  GetIntValue(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'int64_t'
+     |  
+     |  GetSymbolics(self) -> 'void'
+     |  
+     |  GetValue(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  SetIntValue(self, Value: 'int64_t', Verify: 'bool' = True) -> 'void'
+     |  
+     |  SetValue(self, entry: 'GENICAM_NAMESPACE::gcstring') -> 'void'
+     |  
+     |  __call__(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Call self as a function.
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  Entries
+     |  
+     |  IntValue
+     |  
+     |  Symbolics
+     |  
+     |  Value
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IValue:
+     |  
+     |  FromString(self, ValueStr: 'GENICAM_NAMESPACE::gcstring const &', Verify: 'bool' = True) -> 'void'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  IsValueCacheValid(self) -> 'bool'
+     |  
+     |  ToString(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IValue:
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IFloat(IValue)
+     |  IFloat(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      IFloat
+     |      IValue
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  GetDisplayNotation(self) -> 'GENAPI_NAMESPACE::EDisplayNotation'
+     |  
+     |  GetDisplayPrecision(self) -> 'int64_t'
+     |  
+     |  GetEnumAlias(self) -> 'GENAPI_NAMESPACE::IEnumeration *'
+     |  
+     |  GetInc(self) -> 'double'
+     |  
+     |  GetIncMode(self) -> 'GENAPI_NAMESPACE::EIncMode'
+     |  
+     |  GetIntAlias(self) -> 'GENAPI_NAMESPACE::IInteger *'
+     |  
+     |  GetListOfValidValues(self, bounded: 'bool' = True) -> 'double_autovector_t'
+     |  
+     |  GetMax(self) -> 'double'
+     |  
+     |  GetMin(self) -> 'double'
+     |  
+     |  GetRepresentation(self) -> 'GENAPI_NAMESPACE::ERepresentation'
+     |  
+     |  GetUnit(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetValue(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'double'
+     |  
+     |  HasInc(self) -> 'bool'
+     |  
+     |  ImposeMax(self, Value: 'double') -> 'void'
+     |  
+     |  ImposeMin(self, Value: 'double') -> 'void'
+     |  
+     |  SetValue(self, Value: 'double', Verify: 'bool' = True) -> 'void'
+     |  
+     |  __call__(self) -> 'double'
+     |      Call self as a function.
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  DisplayNotation
+     |  
+     |  DisplayPrecision
+     |  
+     |  EnumAlias
+     |  
+     |  Inc
+     |  
+     |  IncMode
+     |  
+     |  IntAlias
+     |  
+     |  ListOfValidValues
+     |  
+     |  Max
+     |  
+     |  Min
+     |  
+     |  Representation
+     |  
+     |  Unit
+     |  
+     |  Value
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IValue:
+     |  
+     |  FromString(self, ValueStr: 'GENICAM_NAMESPACE::gcstring const &', Verify: 'bool' = True) -> 'void'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  IsValueCacheValid(self) -> 'bool'
+     |  
+     |  ToString(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IValue:
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IInteger(IValue)
+     |  IInteger(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      IInteger
+     |      IValue
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  Get(self, pBuffer: 'uint8_t *', Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'void'
+     |  
+     |  GetAddress(self) -> 'int64_t'
+     |  
+     |  GetFloatAlias(self) -> 'GENAPI_NAMESPACE::IFloat *'
+     |  
+     |  GetInc(self) -> 'int64_t'
+     |  
+     |  GetIncMode(self) -> 'GENAPI_NAMESPACE::EIncMode'
+     |  
+     |  GetLength(self) -> 'int64_t'
+     |  
+     |  GetListOfValidValues(self, bounded: 'bool' = True) -> 'int64_autovector_t'
+     |  
+     |  GetMax(self) -> 'int64_t'
+     |  
+     |  GetMin(self) -> 'int64_t'
+     |  
+     |  GetRepresentation(self) -> 'GENAPI_NAMESPACE::ERepresentation'
+     |  
+     |  GetUnit(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetValue(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'int64_t'
+     |  
+     |  ImposeMax(self, Value: 'int64_t') -> 'void'
+     |  
+     |  ImposeMin(self, Value: 'int64_t') -> 'void'
+     |  
+     |  Set(self, pBuffer: 'uint8_t const *', Verify: 'bool' = True) -> 'void'
+     |  
+     |  SetValue(self, Value: 'int64_t', Verify: 'bool' = True) -> 'void'
+     |  
+     |  __call__(self) -> 'int64_t'
+     |      Call self as a function.
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  Address
+     |  
+     |  FloatAlias
+     |  
+     |  Inc
+     |  
+     |  IncMode
+     |  
+     |  Length
+     |  
+     |  ListOfValidValues
+     |  
+     |  Max
+     |  
+     |  Min
+     |  
+     |  Representation
+     |  
+     |  Unit
+     |  
+     |  Value
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IValue:
+     |  
+     |  FromString(self, ValueStr: 'GENICAM_NAMESPACE::gcstring const &', Verify: 'bool' = True) -> 'void'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  IsValueCacheValid(self) -> 'bool'
+     |  
+     |  ToString(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IValue:
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class INode(IBase)
+     |  INode(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      INode
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  DeregisterCallback(self, hCallback: 'GENAPI_NAMESPACE::CallbackHandleType') -> 'bool'
+     |  
+     |  GetAlias(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  GetCachingMode(self) -> 'GENAPI_NAMESPACE::ECachingMode'
+     |  
+     |  GetCastAlias(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  GetChildren(self, *args) -> 'void'
+     |  
+     |  GetDescription(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetDeviceName(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetDisplayName(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetDocuURL(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetEventID(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetName(self, FullQualified: 'bool' = False) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetNameSpace(self) -> 'GENAPI_NAMESPACE::ENameSpace'
+     |  
+     |  GetNodeMap(self) -> 'GENAPI_NAMESPACE::INodeMap *'
+     |  
+     |  GetParents(self) -> 'void'
+     |  
+     |  GetPollingTime(self) -> 'int64_t'
+     |  
+     |  GetPrincipalInterfaceType(self) -> 'GENAPI_NAMESPACE::EInterfaceType'
+     |  
+     |  GetProperty(self, PropertyName: 'GENICAM_NAMESPACE::gcstring const &') -> 'void'
+     |  
+     |  GetPropertyNames(self) -> 'void'
+     |  
+     |  GetSelectedFeatures(self) -> 'void'
+     |  
+     |  GetSelectingFeatures(self) -> 'void'
+     |  
+     |  GetToolTip(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetVisibility(self) -> 'GENAPI_NAMESPACE::EVisibility'
+     |  
+     |  ImposeAccessMode(self, ImposedAccessMode: 'GENAPI_NAMESPACE::EAccessMode') -> 'void'
+     |  
+     |  ImposeVisibility(self, ImposedVisibility: 'GENAPI_NAMESPACE::EVisibility') -> 'void'
+     |  
+     |  InvalidateNode(self) -> 'void'
+     |  
+     |  IsAccessModeCacheable(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  IsCachable(self) -> 'bool'
+     |  
+     |  IsDeprecated(self) -> 'bool'
+     |  
+     |  IsFeature(self) -> 'bool'
+     |  
+     |  IsSelector(self) -> 'bool'
+     |  
+     |  IsStreamable(self) -> 'bool'
+     |  
+     |  RegisterCallback(self, INPUT: 'CNodeCallback *') -> 'GENAPI_NAMESPACE::CallbackHandleType'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  Alias
+     |  
+     |  CachingMode
+     |  
+     |  CastAlias
+     |  
+     |  Children
+     |  
+     |  Description
+     |  
+     |  DeviceName
+     |  
+     |  DisplayName
+     |  
+     |  DocuURL
+     |  
+     |  EventID
+     |  
+     |  Name
+     |  
+     |  NameSpace
+     |  
+     |  NodeMap
+     |  
+     |  Parents
+     |  
+     |  PollingTime
+     |  
+     |  PrincipalInterfaceType
+     |  
+     |  PropertyNames
+     |  
+     |  ToolTip
+     |  
+     |  Visibility
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class INodeMap(builtins.object)
+     |  INodeMap(*args, **kwargs)
+     |  
+     |  Methods defined here:
+     |  
+     |  Connect(self, *args) -> 'bool'
+     |  
+     |  GetDeviceInfo(self) -> 'GENAPI_NAMESPACE::IDeviceInfo *'
+     |  
+     |  GetDeviceName(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetLock(self) -> 'CLock &'
+     |  
+     |  GetNode(self, Name: 'GENICAM_NAMESPACE::gcstring const &') -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  GetNodes(self) -> 'void'
+     |  
+     |  GetNumNodes(self) -> 'uint64_t'
+     |  
+     |  InvalidateNodes(self) -> 'void'
+     |  
+     |  ParseSwissKnifes(self, pErrorList: 'GENICAM_NAMESPACE::gcstring_vector *' = None) -> 'bool'
+     |  
+     |  Poll(self, ElapsedTime: 'int64_t') -> 'void'
+     |  
+     |  __dir__(self)
+     |      Default dir() implementation.
+     |  
+     |  __getattr__(self, attribute)
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  __setattr__(self, attribute, val)
+     |      Implement setattr(self, name, value).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  DeviceInfo
+     |  
+     |  DeviceName
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class IPort(IBase)
+     |  IPort(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      IPort
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  CacheChunkData(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  GetChunkID(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  GetSwapEndianess(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  Read(self, Address: 'int64_t', pBuffer: 'void *') -> 'void'
+     |  
+     |  Write(self, Address: 'int64_t', pBuffer: 'void const *') -> 'void'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  ChunkID
+     |  
+     |  Node
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IPortConstruct(IPort)
+     |  IPortConstruct(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      IPortConstruct
+     |      IPort
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  GetSwapEndianess(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IPort:
+     |  
+     |  CacheChunkData(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  GetChunkID(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  Read(self, Address: 'int64_t', pBuffer: 'void *') -> 'void'
+     |  
+     |  Write(self, Address: 'int64_t', pBuffer: 'void const *') -> 'void'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IPort:
+     |  
+     |  ChunkID
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IPortRecorder(IPortReplay)
+     |  IPortRecorder(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      IPortRecorder
+     |      IPortReplay
+     |      IPort
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  StartRecording(self, pPortRecorder: 'IPortWriteList') -> 'void'
+     |  
+     |  StopRecording(self) -> 'void'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IPortReplay:
+     |  
+     |  Replay(self, pPortRecorder: 'IPortWriteList', Invalidate: 'bool' = True) -> 'void'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IPort:
+     |  
+     |  CacheChunkData(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  GetChunkID(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  GetSwapEndianess(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  Read(self, Address: 'int64_t', pBuffer: 'void *') -> 'void'
+     |  
+     |  Write(self, Address: 'int64_t', pBuffer: 'void const *') -> 'void'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IPort:
+     |  
+     |  ChunkID
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IPortReplay(IPort)
+     |  IPortReplay(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      IPortReplay
+     |      IPort
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  Replay(self, pPortRecorder: 'IPortWriteList', Invalidate: 'bool' = True) -> 'void'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IPort:
+     |  
+     |  CacheChunkData(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  GetChunkID(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  GetSwapEndianess(self) -> 'GENAPI_NAMESPACE::EYesNo'
+     |  
+     |  Read(self, Address: 'int64_t', pBuffer: 'void *') -> 'void'
+     |  
+     |  Write(self, Address: 'int64_t', pBuffer: 'void const *') -> 'void'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IPort:
+     |  
+     |  ChunkID
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IPortWriteList(builtins.object)
+     |  IPortWriteList(*args, **kwargs)
+     |  
+     |  Methods defined here:
+     |  
+     |  GetCookie(self) -> 'int64_t'
+     |  
+     |  Replay(self, pPort: 'IPort') -> 'void'
+     |  
+     |  SetCookie(self, Value: 'int64_t const') -> 'void'
+     |  
+     |  Write(self, pBuffer: 'void const *', Address: 'int64_t', Length: 'int64_t') -> 'void'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class IReference(builtins.object)
+     |  IReference(*args, **kwargs)
+     |  
+     |  Methods defined here:
+     |  
+     |  SetReference(self, pBase: 'IBase') -> 'void'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class IRegister(IValue)
+     |  IRegister(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      IRegister
+     |      IValue
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  Get(self, pBuffer: 'uint8_t *', Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'void'
+     |  
+     |  GetAddress(self) -> 'int64_t'
+     |  
+     |  GetAll(self)
+     |  
+     |  GetLength(self) -> 'int64_t'
+     |  
+     |  Set(self, pBuffer: 'uint8_t const *', Verify: 'bool' = True) -> 'void'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  Address
+     |  
+     |  Length
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IValue:
+     |  
+     |  FromString(self, ValueStr: 'GENICAM_NAMESPACE::gcstring const &', Verify: 'bool' = True) -> 'void'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  IsValueCacheValid(self) -> 'bool'
+     |  
+     |  ToString(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IValue:
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ISelector(IBase)
+     |  ISelector(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      ISelector
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class ISelectorDigit(builtins.object)
+     |  ISelectorDigit(*args, **kwargs)
+     |  
+     |  Methods defined here:
+     |  
+     |  GetSelectorList(self, Incremental: 'bool' = False) -> 'void'
+     |  
+     |  Restore(self) -> 'void'
+     |  
+     |  SetFirst(self) -> 'bool'
+     |  
+     |  SetNext(self, Tick: 'bool' = True) -> 'bool'
+     |  
+     |  ToString(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class IString(IValue)
+     |  IString(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      IString
+     |      IValue
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  GetLength(self) -> 'int64_t'
+     |  
+     |  GetMaxLength(self) -> 'int64_t'
+     |  
+     |  GetValue(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  SetValue(self, Value: 'GENICAM_NAMESPACE::gcstring const &', Verify: 'bool' = True) -> 'void'
+     |  
+     |  __call__(self) -> 'GENICAM_NAMESPACE::gcstring'
+     |      Call self as a function.
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  Length
+     |  
+     |  MaxLength
+     |  
+     |  Value
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IValue:
+     |  
+     |  FromString(self, ValueStr: 'GENICAM_NAMESPACE::gcstring const &', Verify: 'bool' = True) -> 'void'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  IsValueCacheValid(self) -> 'bool'
+     |  
+     |  ToString(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IValue:
+     |  
+     |  Node
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class IValue(IBase)
+     |  IValue(*args, **kwargs)
+     |  
+     |  Method resolution order:
+     |      IValue
+     |      IBase
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  FromString(self, ValueStr: 'GENICAM_NAMESPACE::gcstring const &', Verify: 'bool' = True) -> 'void'
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  IsValueCacheValid(self) -> 'bool'
+     |  
+     |  ToString(self, Verify: 'bool' = False, IgnoreCache: 'bool' = False) -> 'GENICAM_NAMESPACE::gcstring'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  Node
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from IBase:
+     |  
+     |  GetAccessMode(self) -> 'GENAPI_NAMESPACE::EAccessMode'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from IBase:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+    
+    class InvalidArgumentException(GenericException)
+     |  Common base class for all non-exit exceptions.
+     |  
+     |  Method resolution order:
+     |      InvalidArgumentException
+     |      GenericException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from GenericException:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class LogicalErrorException(GenericException)
+     |  Common base class for all non-exit exceptions.
+     |  
+     |  Method resolution order:
+     |      LogicalErrorException
+     |      GenericException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from GenericException:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class OutOfRangeException(GenericException)
+     |  Common base class for all non-exit exceptions.
+     |  
+     |  Method resolution order:
+     |      OutOfRangeException
+     |      GenericException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from GenericException:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class PropertyException(GenericException)
+     |  Common base class for all non-exit exceptions.
+     |  
+     |  Method resolution order:
+     |      PropertyException
+     |      GenericException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from GenericException:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class PyNodeCallback(builtins.object)
+     |  PyNodeCallback(pNode: 'INode', PyFunc: 'PyObject *', CallbackType: 'GENAPI_NAMESPACE::ECallbackType')
+     |  
+     |  Methods defined here:
+     |  
+     |  GetNode(self) -> 'GENAPI_NAMESPACE::INode *'
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, pNode: 'INode', PyFunc: 'PyObject *', CallbackType: 'GENAPI_NAMESPACE::ECallbackType')
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_PyNodeCallback(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class RuntimeException(GenericException)
+     |  Common base class for all non-exit exceptions.
+     |  
+     |  Method resolution order:
+     |      RuntimeException
+     |      GenericException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from GenericException:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class SingleChunkDataStr_t(builtins.object)
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_SingleChunkDataStr_t(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  ChunkID
+     |  
+     |  ChunkLength
+     |  
+     |  ChunkOffset
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class SingleChunkData_t(builtins.object)
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_SingleChunkData_t(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  ChunkID
+     |  
+     |  ChunkLength
+     |  
+     |  ChunkOffset
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class SwigPyIterator(builtins.object)
+     |  SwigPyIterator(*args, **kwargs)
+     |  
+     |  Methods defined here:
+     |  
+     |  __add__(self, n: 'ptrdiff_t') -> 'swig::SwigPyIterator *'
+     |  
+     |  __del__ lambda self
+     |  
+     |  __eq__(self, x: 'SwigPyIterator') -> 'bool'
+     |      Return self==value.
+     |  
+     |  __iadd__(self, n: 'ptrdiff_t') -> 'swig::SwigPyIterator &'
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __isub__(self, n: 'ptrdiff_t') -> 'swig::SwigPyIterator &'
+     |  
+     |  __iter__(self)
+     |  
+     |  __ne__(self, x: 'SwigPyIterator') -> 'bool'
+     |      Return self!=value.
+     |  
+     |  __next__(self) -> 'PyObject *'
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  __sub__(self, *args) -> 'ptrdiff_t'
+     |  
+     |  advance(self, n: 'ptrdiff_t') -> 'swig::SwigPyIterator *'
+     |  
+     |  copy(self) -> 'swig::SwigPyIterator *'
+     |  
+     |  decr(self, n: 'size_t' = 1) -> 'swig::SwigPyIterator *'
+     |  
+     |  distance(self, x: 'SwigPyIterator') -> 'ptrdiff_t'
+     |  
+     |  equal(self, x: 'SwigPyIterator') -> 'bool'
+     |  
+     |  incr(self, n: 'size_t' = 1) -> 'swig::SwigPyIterator *'
+     |  
+     |  next(self) -> 'PyObject *'
+     |  
+     |  previous(self) -> 'PyObject *'
+     |  
+     |  value(self) -> 'PyObject *'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_SwigPyIterator(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  __hash__ = None
+    
+    class TimeoutException(GenericException)
+     |  Common base class for all non-exit exceptions.
+     |  
+     |  Method resolution order:
+     |      TimeoutException
+     |      GenericException
+     |      builtins.Exception
+     |      builtins.BaseException
+     |      builtins.object
+     |  
+     |  Data descriptors inherited from GenericException:
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.Exception:
+     |  
+     |  __init__(self, /, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from builtins.Exception:
+     |  
+     |  __new__(*args, **kwargs) from builtins.type
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.BaseException:
+     |  
+     |  __delattr__(self, name, /)
+     |      Implement delattr(self, name).
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __reduce__(...)
+     |      Helper for pickle.
+     |  
+     |  __repr__(self, /)
+     |      Return repr(self).
+     |  
+     |  __setattr__(self, name, value, /)
+     |      Implement setattr(self, name, value).
+     |  
+     |  __setstate__(...)
+     |  
+     |  __str__(self, /)
+     |      Return str(self).
+     |  
+     |  with_traceback(...)
+     |      Exception.with_traceback(tb) --
+     |      set self.__traceback__ to tb and return self.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from builtins.BaseException:
+     |  
+     |  __cause__
+     |      exception cause
+     |  
+     |  __context__
+     |      exception context
+     |  
+     |  __dict__
+     |  
+     |  __suppress_context__
+     |  
+     |  __traceback__
+     |  
+     |  args
+    
+    class U3V_CHUNK_TRAILER(builtins.object)
+     |  header of a GVCP request packet  
+     |  
+     |  C++ includes: ChunkAdapterU3V.h
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_U3V_CHUNK_TRAILER(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  ChunkID
+     |  
+     |  ChunkLength
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class Version(builtins.object)
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_Version(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  Major
+     |  
+     |  Minor
+     |  
+     |  SubMinor
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class ios(ios_base)
+     |  ios(_ios__sb: 'std::basic_streambuf< char,std::char_traits< char > > *')
+     |  
+     |  Method resolution order:
+     |      ios
+     |      ios_base
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, _ios__sb: 'std::basic_streambuf< char,std::char_traits< char > > *')
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  bad(self) -> 'bool'
+     |  
+     |  clear(self, *args) -> 'void'
+     |  
+     |  copyfmt(self, _ios__rhs: 'ios') -> 'std::basic_ios< char > &'
+     |  
+     |  eof(self) -> 'bool'
+     |  
+     |  exceptions(self, *args) -> 'void'
+     |  
+     |  fail(self) -> 'bool'
+     |  
+     |  fill(self, *args) -> 'std::basic_ios< char >::char_type'
+     |  
+     |  good(self) -> 'bool'
+     |  
+     |  imbue(self, _ios__loc: 'std::locale const &') -> 'std::locale'
+     |  
+     |  narrow(self, _ios__c: 'std::basic_ios< char >::char_type', _ios__dfault: 'char') -> 'char'
+     |  
+     |  rdbuf(self, *args) -> 'std::basic_streambuf< char,std::char_traits< char > > *'
+     |  
+     |  rdstate(self) -> 'std::ios_base::iostate'
+     |  
+     |  setstate(self, _ios__state: 'std::ios_base::iostate') -> 'void'
+     |  
+     |  tie(self, *args) -> 'std::basic_ostream< char,std::char_traits< char > > *'
+     |  
+     |  widen(self, _ios__c: 'char') -> 'std::basic_ios< char >::char_type'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_ios(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from ios_base:
+     |  
+     |  flags(self, *args) -> 'std::ios_base::fmtflags'
+     |  
+     |  getloc(self) -> 'std::locale'
+     |  
+     |  iword(self, _ios_base__ix: 'int') -> 'long &'
+     |  
+     |  precision(self, *args) -> 'std::streamsize'
+     |  
+     |  pword(self, _ios_base__ix: 'int') -> 'void *&'
+     |  
+     |  register_callback(self, _ios_base__fn: 'std::ios_base::event_callback', _ios_base__index: 'int') -> 'void'
+     |  
+     |  setf(self, *args) -> 'std::ios_base::fmtflags'
+     |  
+     |  unsetf(self, _ios_base__mask: 'std::ios_base::fmtflags') -> 'void'
+     |  
+     |  width(self, *args) -> 'std::streamsize'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods inherited from ios_base:
+     |  
+     |  sync_with_stdio = ios_base_sync_with_stdio(...)
+     |  
+     |  xalloc = ios_base_xalloc(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors inherited from ios_base:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes inherited from ios_base:
+     |  
+     |  adjustfield = 448
+     |  
+     |  app = 8
+     |  
+     |  ate = 4
+     |  
+     |  badbit = 4
+     |  
+     |  basefield = 3584
+     |  
+     |  beg = 0
+     |  
+     |  binary = 32
+     |  
+     |  boolalpha = 16384
+     |  
+     |  copyfmt_event = 2
+     |  
+     |  cur = 1
+     |  
+     |  dec = 512
+     |  
+     |  end = 2
+     |  
+     |  eofbit = 1
+     |  
+     |  erase_event = 0
+     |  
+     |  failbit = 2
+     |  
+     |  fixed = 8192
+     |  
+     |  floatfield = 12288
+     |  
+     |  goodbit = 0
+     |  
+     |  hex = 2048
+     |  
+     |  imbue_event = 1
+     |  
+     |  internal = 256
+     |  
+     |  ios_base_in = 1
+     |  
+     |  left = 64
+     |  
+     |  oct = 1024
+     |  
+     |  out = 2
+     |  
+     |  right = 128
+     |  
+     |  scientific = 4096
+     |  
+     |  showbase = 8
+     |  
+     |  showpoint = 16
+     |  
+     |  showpos = 32
+     |  
+     |  skipws = 1
+     |  
+     |  trunc = 16
+     |  
+     |  unitbuf = 2
+     |  
+     |  uppercase = 4
+    
+    class ios_base(builtins.object)
+     |  ios_base(*args, **kwargs)
+     |  
+     |  Methods defined here:
+     |  
+     |  __del__ lambda self
+     |  
+     |  __init__(self, *args, **kwargs)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  flags(self, *args) -> 'std::ios_base::fmtflags'
+     |  
+     |  getloc(self) -> 'std::locale'
+     |  
+     |  imbue(self, _ios_base__loc: 'std::locale const &') -> 'std::locale'
+     |  
+     |  iword(self, _ios_base__ix: 'int') -> 'long &'
+     |  
+     |  precision(self, *args) -> 'std::streamsize'
+     |  
+     |  pword(self, _ios_base__ix: 'int') -> 'void *&'
+     |  
+     |  register_callback(self, _ios_base__fn: 'std::ios_base::event_callback', _ios_base__index: 'int') -> 'void'
+     |  
+     |  setf(self, *args) -> 'std::ios_base::fmtflags'
+     |  
+     |  unsetf(self, _ios_base__mask: 'std::ios_base::fmtflags') -> 'void'
+     |  
+     |  width(self, *args) -> 'std::streamsize'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_ios_base(...)
+     |  
+     |  sync_with_stdio = ios_base_sync_with_stdio(...)
+     |  
+     |  xalloc = ios_base_xalloc(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data and other attributes defined here:
+     |  
+     |  adjustfield = 448
+     |  
+     |  app = 8
+     |  
+     |  ate = 4
+     |  
+     |  badbit = 4
+     |  
+     |  basefield = 3584
+     |  
+     |  beg = 0
+     |  
+     |  binary = 32
+     |  
+     |  boolalpha = 16384
+     |  
+     |  copyfmt_event = 2
+     |  
+     |  cur = 1
+     |  
+     |  dec = 512
+     |  
+     |  end = 2
+     |  
+     |  eofbit = 1
+     |  
+     |  erase_event = 0
+     |  
+     |  failbit = 2
+     |  
+     |  fixed = 8192
+     |  
+     |  floatfield = 12288
+     |  
+     |  goodbit = 0
+     |  
+     |  hex = 2048
+     |  
+     |  imbue_event = 1
+     |  
+     |  internal = 256
+     |  
+     |  ios_base_in = 1
+     |  
+     |  left = 64
+     |  
+     |  oct = 1024
+     |  
+     |  out = 2
+     |  
+     |  right = 128
+     |  
+     |  scientific = 4096
+     |  
+     |  showbase = 8
+     |  
+     |  showpoint = 16
+     |  
+     |  showpos = 32
+     |  
+     |  skipws = 1
+     |  
+     |  trunc = 16
+     |  
+     |  unitbuf = 2
+     |  
+     |  uppercase = 4
+    
+    class node_vector(builtins.object)
+     |  node_vector(*args)
+     |  
+     |  Methods defined here:
+     |  
+     |  __bool__(self) -> 'bool'
+     |  
+     |  __del__ lambda self
+     |  
+     |  __delitem__(self, *args) -> 'void'
+     |  
+     |  __delslice__(self, i: 'std::vector< GENAPI_NAMESPACE::INode * >::difference_type', j: 'std::vector< GENAPI_NAMESPACE::INode * >::difference_type') -> 'void'
+     |  
+     |  __getitem__(self, *args) -> 'std::vector< GENAPI_NAMESPACE::INode * >::value_type'
+     |  
+     |  __getslice__(self, i: 'std::vector< GENAPI_NAMESPACE::INode * >::difference_type', j: 'std::vector< GENAPI_NAMESPACE::INode * >::difference_type') -> 'std::vector< GENAPI_NAMESPACE::INode *,std::allocator< GENAPI_NAMESPACE::INode * > > *'
+     |  
+     |  __init__(self, *args)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __iter__(self)
+     |  
+     |  __len__(self) -> 'std::vector< GENAPI_NAMESPACE::INode * >::size_type'
+     |  
+     |  __nonzero__(self) -> 'bool'
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  __setitem__(self, *args) -> 'void'
+     |  
+     |  __setslice__(self, *args) -> 'void'
+     |  
+     |  append(self, x: 'INode') -> 'void'
+     |  
+     |  assign(self, n: 'std::vector< GENAPI_NAMESPACE::INode * >::size_type', x: 'INode') -> 'void'
+     |  
+     |  back(self) -> 'std::vector< GENAPI_NAMESPACE::INode * >::value_type'
+     |  
+     |  begin(self) -> 'std::vector< GENAPI_NAMESPACE::INode * >::iterator'
+     |  
+     |  capacity(self) -> 'std::vector< GENAPI_NAMESPACE::INode * >::size_type'
+     |  
+     |  clear(self) -> 'void'
+     |  
+     |  empty(self) -> 'bool'
+     |  
+     |  end(self) -> 'std::vector< GENAPI_NAMESPACE::INode * >::iterator'
+     |  
+     |  erase(self, *args) -> 'std::vector< GENAPI_NAMESPACE::INode * >::iterator'
+     |  
+     |  front(self) -> 'std::vector< GENAPI_NAMESPACE::INode * >::value_type'
+     |  
+     |  get_allocator(self) -> 'std::vector< GENAPI_NAMESPACE::INode * >::allocator_type'
+     |  
+     |  insert(self, *args) -> 'void'
+     |  
+     |  iterator(self) -> 'swig::SwigPyIterator *'
+     |  
+     |  pop(self) -> 'std::vector< GENAPI_NAMESPACE::INode * >::value_type'
+     |  
+     |  pop_back(self) -> 'void'
+     |  
+     |  push_back(self, x: 'INode') -> 'void'
+     |  
+     |  rbegin(self) -> 'std::vector< GENAPI_NAMESPACE::INode * >::reverse_iterator'
+     |  
+     |  rend(self) -> 'std::vector< GENAPI_NAMESPACE::INode * >::reverse_iterator'
+     |  
+     |  reserve(self, n: 'std::vector< GENAPI_NAMESPACE::INode * >::size_type') -> 'void'
+     |  
+     |  resize(self, *args) -> 'void'
+     |  
+     |  size(self) -> 'std::vector< GENAPI_NAMESPACE::INode * >::size_type'
+     |  
+     |  swap(self, v: 'node_vector') -> 'void'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_node_vector(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class string_vector(builtins.object)
+     |  string_vector(*args)
+     |  
+     |  Methods defined here:
+     |  
+     |  __bool__(self) -> 'bool'
+     |  
+     |  __del__ lambda self
+     |  
+     |  __delitem__(self, *args) -> 'void'
+     |  
+     |  __delslice__(self, i: 'std::vector< GENICAM_NAMESPACE::gcstring >::difference_type', j: 'std::vector< GENICAM_NAMESPACE::gcstring >::difference_type') -> 'void'
+     |  
+     |  __getitem__(self, *args) -> 'std::vector< GENICAM_NAMESPACE::gcstring >::value_type const &'
+     |  
+     |  __getslice__(self, i: 'std::vector< GENICAM_NAMESPACE::gcstring >::difference_type', j: 'std::vector< GENICAM_NAMESPACE::gcstring >::difference_type') -> 'std::vector< GENICAM_NAMESPACE::gcstring,std::allocator< GENICAM_NAMESPACE::gcstring > > *'
+     |  
+     |  __init__(self, *args)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __iter__(self)
+     |  
+     |  __len__(self) -> 'std::vector< GENICAM_NAMESPACE::gcstring >::size_type'
+     |  
+     |  __nonzero__(self) -> 'bool'
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  __setitem__(self, *args) -> 'void'
+     |  
+     |  __setslice__(self, *args) -> 'void'
+     |  
+     |  append(self, x: 'std::vector< GENICAM_NAMESPACE::gcstring >::value_type const &') -> 'void'
+     |  
+     |  assign(self, n: 'std::vector< GENICAM_NAMESPACE::gcstring >::size_type', x: 'std::vector< GENICAM_NAMESPACE::gcstring >::value_type const &') -> 'void'
+     |  
+     |  back(self) -> 'std::vector< GENICAM_NAMESPACE::gcstring >::value_type const &'
+     |  
+     |  begin(self) -> 'std::vector< GENICAM_NAMESPACE::gcstring >::iterator'
+     |  
+     |  capacity(self) -> 'std::vector< GENICAM_NAMESPACE::gcstring >::size_type'
+     |  
+     |  clear(self) -> 'void'
+     |  
+     |  empty(self) -> 'bool'
+     |  
+     |  end(self) -> 'std::vector< GENICAM_NAMESPACE::gcstring >::iterator'
+     |  
+     |  erase(self, *args) -> 'std::vector< GENICAM_NAMESPACE::gcstring >::iterator'
+     |  
+     |  front(self) -> 'std::vector< GENICAM_NAMESPACE::gcstring >::value_type const &'
+     |  
+     |  get_allocator(self) -> 'std::vector< GENICAM_NAMESPACE::gcstring >::allocator_type'
+     |  
+     |  insert(self, *args) -> 'void'
+     |  
+     |  iterator(self) -> 'swig::SwigPyIterator *'
+     |  
+     |  pop(self) -> 'std::vector< GENICAM_NAMESPACE::gcstring >::value_type'
+     |  
+     |  pop_back(self) -> 'void'
+     |  
+     |  push_back(self, x: 'std::vector< GENICAM_NAMESPACE::gcstring >::value_type const &') -> 'void'
+     |  
+     |  rbegin(self) -> 'std::vector< GENICAM_NAMESPACE::gcstring >::reverse_iterator'
+     |  
+     |  rend(self) -> 'std::vector< GENICAM_NAMESPACE::gcstring >::reverse_iterator'
+     |  
+     |  reserve(self, n: 'std::vector< GENICAM_NAMESPACE::gcstring >::size_type') -> 'void'
+     |  
+     |  resize(self, *args) -> 'void'
+     |  
+     |  size(self) -> 'std::vector< GENICAM_NAMESPACE::gcstring >::size_type'
+     |  
+     |  swap(self, v: 'string_vector') -> 'void'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_string_vector(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+    
+    class value_vector(builtins.object)
+     |  value_vector(*args)
+     |  
+     |  Methods defined here:
+     |  
+     |  __bool__(self) -> 'bool'
+     |  
+     |  __del__ lambda self
+     |  
+     |  __delitem__(self, *args) -> 'void'
+     |  
+     |  __delslice__(self, i: 'std::vector< GENAPI_NAMESPACE::IValue * >::difference_type', j: 'std::vector< GENAPI_NAMESPACE::IValue * >::difference_type') -> 'void'
+     |  
+     |  __getitem__(self, *args) -> 'std::vector< GENAPI_NAMESPACE::IValue * >::value_type'
+     |  
+     |  __getslice__(self, i: 'std::vector< GENAPI_NAMESPACE::IValue * >::difference_type', j: 'std::vector< GENAPI_NAMESPACE::IValue * >::difference_type') -> 'std::vector< GENAPI_NAMESPACE::IValue *,std::allocator< GENAPI_NAMESPACE::IValue * > > *'
+     |  
+     |  __init__(self, *args)
+     |      Initialize self.  See help(type(self)) for accurate signature.
+     |  
+     |  __iter__(self)
+     |  
+     |  __len__(self) -> 'std::vector< GENAPI_NAMESPACE::IValue * >::size_type'
+     |  
+     |  __nonzero__(self) -> 'bool'
+     |  
+     |  __repr__ = _swig_repr(self)
+     |  
+     |  __setitem__(self, *args) -> 'void'
+     |  
+     |  __setslice__(self, *args) -> 'void'
+     |  
+     |  append(self, x: 'IValue') -> 'void'
+     |  
+     |  assign(self, n: 'std::vector< GENAPI_NAMESPACE::IValue * >::size_type', x: 'IValue') -> 'void'
+     |  
+     |  back(self) -> 'std::vector< GENAPI_NAMESPACE::IValue * >::value_type'
+     |  
+     |  begin(self) -> 'std::vector< GENAPI_NAMESPACE::IValue * >::iterator'
+     |  
+     |  capacity(self) -> 'std::vector< GENAPI_NAMESPACE::IValue * >::size_type'
+     |  
+     |  clear(self) -> 'void'
+     |  
+     |  empty(self) -> 'bool'
+     |  
+     |  end(self) -> 'std::vector< GENAPI_NAMESPACE::IValue * >::iterator'
+     |  
+     |  erase(self, *args) -> 'std::vector< GENAPI_NAMESPACE::IValue * >::iterator'
+     |  
+     |  front(self) -> 'std::vector< GENAPI_NAMESPACE::IValue * >::value_type'
+     |  
+     |  get_allocator(self) -> 'std::vector< GENAPI_NAMESPACE::IValue * >::allocator_type'
+     |  
+     |  insert(self, *args) -> 'void'
+     |  
+     |  iterator(self) -> 'swig::SwigPyIterator *'
+     |  
+     |  pop(self) -> 'std::vector< GENAPI_NAMESPACE::IValue * >::value_type'
+     |  
+     |  pop_back(self) -> 'void'
+     |  
+     |  push_back(self, x: 'IValue') -> 'void'
+     |  
+     |  rbegin(self) -> 'std::vector< GENAPI_NAMESPACE::IValue * >::reverse_iterator'
+     |  
+     |  rend(self) -> 'std::vector< GENAPI_NAMESPACE::IValue * >::reverse_iterator'
+     |  
+     |  reserve(self, n: 'std::vector< GENAPI_NAMESPACE::IValue * >::size_type') -> 'void'
+     |  
+     |  resize(self, *args) -> 'void'
+     |  
+     |  size(self) -> 'std::vector< GENAPI_NAMESPACE::IValue * >::size_type'
+     |  
+     |  swap(self, v: 'value_vector') -> 'void'
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __swig_destroy__ = delete_value_vector(...)
+     |  
+     |  ----------------------------------------------------------------------
+     |  Data descriptors defined here:
+     |  
+     |  __dict__
+     |      dictionary for instance variables (if defined)
+     |  
+     |  __weakref__
+     |      list of weak references to the object (if defined)
+     |  
+     |  thisown
+     |      The membership flag
+
+FUNCTIONS
+    AttachStatistics_t_swigregister(...)
+    
+    CNodeMapRef__ClearXMLCache(...)
+    
+    CNodeMapRef_swigregister(...)
+    
+    CPortImpl_swigregister(...)
+    
+    CSelectorSet_swigregister(...)
+    
+    ChunkAdapterGEV_swigregister(...)
+    
+    ChunkAdapterGeneric_swigregister(...)
+    
+    ChunkAdapterU3V_swigregister(...)
+    
+    ChunkAdapter_swigregister(...)
+    
+    ChunkPort_swigregister(...)
+    
+    Combine(Peter: 'GENAPI_NAMESPACE::EAccessMode', Paul: 'GENAPI_NAMESPACE::EAccessMode') -> 'GENAPI_NAMESPACE::EAccessMode'
+        Computes which CachingMode results from a combination.
+    
+    CombineCachingMode(Peter: 'GENAPI_NAMESPACE::ECachingMode', Paul: 'GENAPI_NAMESPACE::ECachingMode') -> 'GENAPI_NAMESPACE::ECachingMode'
+        Computes which CachingMode results from a combination.
+    
+    CombineVisibility(Peter: 'GENAPI_NAMESPACE::EVisibility', Paul: 'GENAPI_NAMESPACE::EVisibility') -> 'GENAPI_NAMESPACE::EVisibility'
+        Computes which CachingMode results from a combination.
+    
+    Deregister(pCallbackInfo: 'GENAPI_NAMESPACE::CallbackHandleType') -> 'void'
+        Unregistering callback by handle.
+    
+    EAccessModeClass_FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EAccessMode *') -> 'GENICAM_NAMESPACE::gcstring const &'
+        Converts a string to enum value.
+    
+    EAccessModeClass_ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+        Converts a string to an int32_t property.
+    
+    EAccessModeClass_swigregister(...)
+    
+    ECachingModeClass_FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::ECachingMode *') -> 'GENICAM_NAMESPACE::gcstring const &'
+        Converts a string to enum value.
+    
+    ECachingModeClass_ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+        Converts a string to an int32_t property.
+    
+    ECachingModeClass_swigregister(...)
+    
+    EDisplayNotationClass_FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EDisplayNotation *') -> 'GENICAM_NAMESPACE::gcstring const &'
+        Converts a string to enum value.
+    
+    EDisplayNotationClass_ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+        Converts a string to an int32_t property.
+    
+    EDisplayNotationClass_swigregister(...)
+    
+    EEndianessClass_FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EEndianess *') -> 'GENICAM_NAMESPACE::gcstring const &'
+        Converts a string to enum value.
+    
+    EEndianessClass_ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+        Converts a string to an int32_t property.
+    
+    EEndianessClass_swigregister(...)
+    
+    EInputDirectionClass_FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EInputDirection *') -> 'GENICAM_NAMESPACE::gcstring const &'
+        Converts a string to enum value.
+    
+    EInputDirectionClass_ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+        Converts a string to an int32_t property.
+    
+    EInputDirectionClass_swigregister(...)
+    
+    ENameSpaceClass_FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::ENameSpace *') -> 'GENICAM_NAMESPACE::gcstring const &'
+        Converts a string to enum value.
+    
+    ENameSpaceClass_ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+        Converts a string to an int32_t property.
+    
+    ENameSpaceClass_swigregister(...)
+    
+    ERepresentationClass_FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::ERepresentation *') -> 'GENICAM_NAMESPACE::gcstring const &'
+        Converts a string to enum value.
+    
+    ERepresentationClass_ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+        Converts a string to an int32_t property.
+    
+    ERepresentationClass_swigregister(...)
+    
+    ESignClass_FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::ESign *') -> 'GENICAM_NAMESPACE::gcstring const &'
+        Converts a string to enum value.
+    
+    ESignClass_ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+        Converts a string to an int32_t property.
+    
+    ESignClass_swigregister(...)
+    
+    ESlopeClass_FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::ESlope *') -> 'GENICAM_NAMESPACE::gcstring const &'
+        Converts a string to enum value.
+    
+    ESlopeClass_ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+        Converts a string to an int32_t property.
+    
+    ESlopeClass_swigregister(...)
+    
+    EStandardNameSpaceClass_FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EStandardNameSpace *') -> 'GENICAM_NAMESPACE::gcstring const &'
+        Converts a string to enum value.
+    
+    EStandardNameSpaceClass_ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+        Converts a string to an int32_t property.
+    
+    EStandardNameSpaceClass_swigregister(...)
+    
+    EVisibilityClass_FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EVisibility *') -> 'GENICAM_NAMESPACE::gcstring const &'
+        Converts a string to enum value.
+    
+    EVisibilityClass_ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+        Converts a string to an int32_t property.
+    
+    EVisibilityClass_swigregister(...)
+    
+    EYesNoClass_FromString(ValueStr: 'GENICAM_NAMESPACE::gcstring const &', pValue: 'GENAPI_NAMESPACE::EYesNo *') -> 'GENICAM_NAMESPACE::gcstring const &'
+        Converts a string to enum value.
+    
+    EYesNoClass_ToString(*args) -> 'GENICAM_NAMESPACE::gcstring'
+        Converts a string to an int32_t property.
+    
+    EYesNoClass_swigregister(...)
+    
+    EventAdapterGEV_swigregister(...)
+    
+    EventAdapterGeneric_swigregister(...)
+    
+    EventAdapterU3V_swigregister(...)
+    
+    EventAdapter_swigregister(...)
+    
+    EventPort_swigregister(...)
+    
+    FileProtocolAdapter_swigregister(...)
+    
+    GVCP_CHUNK_TRAILER_swigregister(...)
+    
+    GetAll(self)
+    
+    IBase_swigregister(...)
+    
+    IBoolean_swigregister(...)
+    
+    ICategory_swigregister(...)
+    
+    IChunkPort_swigregister(...)
+    
+    ICommand_swigregister(...)
+    
+    IDeviceInfo_swigregister(...)
+    
+    IEnumEntry_swigregister(...)
+    
+    IEnumReference_swigregister(...)
+    
+    IEnumeration_swigregister(...)
+    
+    IFloat_swigregister(...)
+    
+    IInteger_swigregister(...)
+    
+    INodeMap_swigregister(...)
+    
+    INode_swigregister(...)
+    
+    IPortConstruct_swigregister(...)
+    
+    IPortRecorder_swigregister(...)
+    
+    IPortReplay_swigregister(...)
+    
+    IPortWriteList_swigregister(...)
+    
+    IPort_swigregister(...)
+    
+    IReference_swigregister(...)
+    
+    IRegister_swigregister(...)
+    
+    ISelectorDigit_swigregister(...)
+    
+    ISelector_swigregister(...)
+    
+    IString_swigregister(...)
+    
+    IValue_swigregister(...)
+    
+    IsAvailable(*args) -> 'bool'
+        Checks if a node is Available.
+    
+    IsCacheable(CachingMode: 'GENAPI_NAMESPACE::ECachingMode') -> 'bool'
+        Tests Cacheability.
+    
+    IsImplemented(*args) -> 'bool'
+        Checks if a node is Implemented.
+    
+    IsReadable(*args) -> 'bool'
+        Checks if a node is readable.
+    
+    IsVisible(Visibility: 'GENAPI_NAMESPACE::EVisibility', MaxVisiblity: 'GENAPI_NAMESPACE::EVisibility') -> 'bool'
+        Tests Visibility.  
+        
+        CAVE : this relys on the EVisibility enum's coding
+    
+    IsWritable(*args) -> 'bool'
+        Checks if a node is Writable.
+    
+    PyNodeCallback_swigregister(...)
+    
+    Register(node, callback_fun, callback_type=1)
+    
+    SingleChunkDataStr_t_swigregister(...)
+    
+    SingleChunkData_t_swigregister(...)
+    
+    SwigPyIterator_swigregister(...)
+    
+    TranslateGenicamException(...)
+    
+    U3V_CHUNK_TRAILER_swigregister(...)
+    
+    Version_swigregister(...)
+    
+    ios_base_swigregister(...)
+    
+    ios_base_sync_with_stdio(...)
+    
+    ios_base_xalloc(...)
+    
+    ios_swigregister(...)
+    
+    node_vector_swigregister(...)
+    
+    string_vector_swigregister(...)
+    
+    value_vector_swigregister(...)
+    
+    weakref_proxy = proxy(...)
+        proxy(object[, callback]) -- create a proxy object that weakly
+        references 'object'.  'callback', if given, is called with a
+        reference to the proxy when 'object' is about to be finalized.
+
+DATA
+    Automatic = 3
+    Beginner = 0
+    BigEndian = 0
+    Boolean = 2
+    CHUNK_BASE_ADDRESS_REGISTER_LEN = 8
+    CHUNK_LENGTH_REGISTER_LEN = 8
+    CL = 3
+    COMMAND_MAGIC = 66
+    Custom = 0
+    Decreasing = 1
+    Expert = 1
+    GENCP_COMMAND_HEADER_SIZE = 12
+    GENCP_EVENT_BASIC_SIZE = 24
+    GENCP_EVENT_CMD_ID = 3072
+    GEV = 1
+    Guru = 2
+    HexNumber = 4
+    IIDC = 2
+    IPV4Address = 5
+    Increasing = 0
+    Invisible = 3
+    Linear = 0
+    LittleEndian = 1
+    Logarithmic = 1
+    MACAddress = 6
+    NA = 1
+    NI = 0
+    No = 0
+    NoCache = 0
+    PureNumber = 3
+    RO = 3
+    RW = 4
+    Signed = 0
+    Standard = 1
+    U3V_EVENT_PREFIX = 1163277141
+    USB = 4
+    Unsigned = 1
+    Varying = 2
+    WO = 2
+    WriteAround = 2
+    WriteThrough = 1
+    Yes = 1
+    cbPostInsideLock = 1
+    cbPostOutsideLock = 2
+    ctDependingNodes = 4
+    ctInvalidatingChildren = 3
+    ctParentNodes = 0
+    ctReadingChildren = 1
+    ctTerminalNodes = 5
+    ctValueChangingChildren = 6
+    ctWritingChildren = 2
+    cvar = <Swig global variables>
+    fixedIncrement = 1
+    fnAutomatic = 0
+    fnFixed = 1
+    fnScientific = 2
+    idFrom = 0
+    idNone = 2
+    idTo = 1
+    intfIBase = 1
+    intfIBoolean = 3
+    intfICategory = 8
+    intfICommand = 4
+    intfIEnumEntry = 10
+    intfIEnumeration = 9
+    intfIFloat = 5
+    intfIInteger = 2
+    intfIPort = 11
+    intfIRegister = 7
+    intfIString = 6
+    intfIValue = 0
+    listIncrement = 2
+    noIncrement = 0
+    xvAll = -1
+    xvCycles = 2
+    xvDefault = 0
+    xvLoad = 1
+    xvSFNC = 4
+
+VERSION
+    1.4.0
+
+FILE
+    c:\users\ghile\anaconda3\envs\imagproc\lib\site-packages\pypylon\genicam.py
+
+
