@@ -15,10 +15,14 @@ camera.Open()
 camera.TriggerSelector.SetValue("FrameStart")
 camera.TriggerMode.SetValue("On")
 camera.TriggerSource.SetValue("Line3")
+# camera.ExposureMode.SetValue("Timed")
+# Analog gain is applied before the signal from the camera sensor is converted into digital values.
+# Digital gain is applied after the conversion, i.e., it is basically a multiplication of the digitized values.
+# camera.GainSelector.SetValue("DigitalAll") or AnalogAll
 print(camera.TriggerMode.GetValue())
 print(camera.TriggerSelector.GetValue())
 print(camera.TriggerSource.GetValue())
-camera.StartGrabbing(pylon.GrabStrategy_UpcomingImage)
+camera.StartGrabbing(1)
 img = pylon.PylonImage()
 tlf = pylon.TlFactory.GetInstance()
 print("waiting for grab")
