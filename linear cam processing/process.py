@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 from imutils import auto_canny
 import numpy as np
 
-img = cv2.imread("image.bmp")
+img = cv2.imread("C:\\codes\\saved_pypylon_img1582130078.9589338.jpeg")
 # taking only one channel because the three channels are already in gray
 img = img[:, :, 0]
 equalized = cv2.equalizeHist(img)
@@ -24,7 +24,7 @@ plt.imshow(equalized)
 # plt.imshow(autocanny, cmap="gray")
 
 # plt.imshow(equalized, cmap="gray")
-# cv2.imwrite("equalized.bmp", equalized)
+cv2.imwrite("equalized.bmp", equalized)
 # cv2.imshow("img", img)
 # cv2.waitKey(0)
 # cv2.destroyAllWindows()

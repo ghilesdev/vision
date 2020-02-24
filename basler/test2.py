@@ -12,6 +12,9 @@ camera = pylon.InstantCamera(pylon.TlFactory_GetInstance().CreateFirstDevice())
 print("Using device ", camera.GetDeviceInfo().GetModelName())
 # print("settings: ", camera.GetNodeMap())
 camera.Open()
+# configure camera parameter
+camera.Width = 8192
+camera.Height = 4000
 camera.TriggerSelector.SetValue("FrameStart")
 camera.TriggerMode.SetValue("On")
 camera.TriggerSource.SetValue("Line3")
