@@ -24,21 +24,23 @@ def absoluteFilePaths(directory):
 
 def process(source_file):
     """
-
+        apply bgr to grayscale conversion
+        apply histogram equalisation
     Args:
-        source_file:
+        source_file: path to the image to be processed
 
     Returns:
         preprocessed image
     """
     image = cv2.imread(source_file)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     # taking only one channel because the three channels are already in gray
-    image = image[:, :, 0]
+    # image = image[:, :, 0]
     equalized = cv2.equalizeHist(image)
     return equalized
 
 
-def segment(processed):
+def segment(processed, name):
     """
         cuts the image into 512*512 batch
     Args:
@@ -48,57 +50,38 @@ def segment(processed):
         list of cropped images
         list of labels of images
     """
-    w, h = processed.shape[1], processed.shape[0]
-    nb_of_hsegment = round((w / 512) + 0.5)
-    nb_of_vsegment = round((h / 512) + 0.5)
-    print("nb of h seg", nb_of_hsegment)
-    print("nb of v seg", nb_of_vsegment)
-    segmented = []
-    labels = []
-    for i in range(nb_of_vsegment):
-        for j in range(nb_of_hsegment):
-            img = processed[i * 512 : (i + 1) * 512, j * 512 : (j + 1) * 512]
-            labels.append((i, j))
-            segmented.append(img)
+    width, height = processed.shape[1], processed.shape[0]
+    if width > 512 and height > 512:
+        nb_of_hsegment = round((width / 512) + 0.5)
+        nb_of_vsegment = round((height / 512) + 0.5)
+        segmented = []
+        labels = []
+        for i in range(nb_of_vsegment):
+            for j in range(nb_of_hsegment):
+                img = processed[i * 512 : (i + 1) * 512, j * 512 : (j + 1) * 512]
+                labels.append((i, j))
+                segmented.append(img)
+                cv2.imwrite(f"{OUTPUT_PATH}{(i, j)}{name}", img)
+
+    elif width == 512 and height == 512:
+        segmented = processed
+        labels = (1, 1)
+        cv2.imwrite(f"{OUTPUT_PATH}{labels}{name}", segmented)
+
     return segmented, labels
-
-
-def anotate(segmented):
-    """
-
-    Args:
-        segmented:
-
-    Returns:
-
-    """
-    return segmented
-
-
-def save(segmented, labels):
-    """
-    
-    Args:
-        segmented: 
-
-    Returns:
-        nothing
-    """
-    for i, seg in enumerate(segmented):
-        cv2.imwrite(f"{OUTPUT_PATH}{labels[i]}.bmp", seg)
 
 
 def main():
     source_files = list(absoluteFilePaths(INPUT_PATH))
-    print(source_files)
     segmented_images = []
+    labels_list = []
     count = 0
     for source_file in source_files:
+        file_name = os.path.basename(source_file)
         processed = process(source_file)
-        segmented, labels = segment(processed)
-        annotated = anotate(segmented)
-        segmented_images.append(annotated)
-        save(segmented, labels)
+        segmented, labels = segment(processed, file_name)
+        segmented_images.append(segmented)
+        labels_list.append(labels)
         count += 1
 
 

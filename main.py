@@ -15,14 +15,14 @@ if not os.path.exists(prediction_path):
     os.makedirs(prediction_path)
 
 
-def predict(image, neural_model, count):
+def predict(image, neural_model, name):
     """
         predict if in image of fabric presents a defect, then anotates it and saves it to the
         prediction folder
     Args:
         image: path to the image to be predicted
         neural_model: the trained neural network model to be used
-        count: used to name the image to be saved (only temporary until a good naming method)
+        name: used to name the image to be saved
 
     Returns:
 
@@ -42,7 +42,7 @@ def predict(image, neural_model, count):
     # draw the label on the image
     text = "prediction :{}".format(label)
     cv2.putText(output, text, (20, 20), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
-    cv2.imwrite(prediction_path + "predict_" + str(count) + ".bmp", output)
+    cv2.imwrite(prediction_path + "predict_" + str(name), output)
 
 
 def main():
@@ -51,7 +51,8 @@ def main():
     count = 0
     start_time = time.perf_counter()
     for image in output_files:
-        predict(image, model, count)
+        file_name = os.path.basename(image)
+        predict(image, model, file_name)
         count += 1
     end_time = time.perf_counter()
     runing_time = end_time - start_time
