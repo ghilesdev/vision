@@ -5,16 +5,21 @@ from collections import deque
 import numpy as np
 import argparse
 import cv2
+
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--input", required=True,
-	help="path to our input video")
-ap.add_argument("-o", "--output", required=True,
-	help="path to our output video")
-ap.add_argument("-s", "--size", type=int, default=128,
-	help="size of queue for averaging")
-ap.add_argument("-d", "--display", type=int, default=-1,
-	help="whether or not output frame should be displayed to screen")
+ap.add_argument("-i", "--input", required=True, help="path to our input video")
+ap.add_argument("-o", "--output", required=True, help="path to our output video")
+ap.add_argument(
+    "-s", "--size", type=int, default=128, help="size of queue for averaging"
+)
+ap.add_argument(
+    "-d",
+    "--display",
+    type=int,
+    default=-1,
+    help="whether or not output frame should be displayed to screen",
+)
 args = vars(ap.parse_args())
 
 # load the trained model from disk
@@ -61,15 +66,13 @@ while True:
 
     # draw the activity on the output frame
     text = "activity: {}".format(label)
-    cv2.putText(output, text, (35, 50), cv2.FONT_HERSHEY_SIMPLEX,
-                1.25, (0, 255, 0), 5)
+    cv2.putText(output, text, (35, 50), cv2.FONT_HERSHEY_SIMPLEX, 1.25, (0, 255, 0), 5)
 
     # check if the video writer is None
     if writer is None:
         # initialize our video writer
         fourcc = cv2.VideoWriter_fourcc(*"MJPG")
-        writer = cv2.VideoWriter(args["output"], fourcc, 30,
-                                 (W, H), True)
+        writer = cv2.VideoWriter(args["output"], fourcc, 30, (W, H), True)
 
     # write the output frame to disk
     writer.write(output)

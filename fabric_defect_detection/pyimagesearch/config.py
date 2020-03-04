@@ -1,5 +1,6 @@
 # import the necessary packages
 import os
+
 # initialize the path to the input directory containing our dataset
 # of images
 DATASET_PATH = "dataset"
@@ -21,7 +22,7 @@ CLR_METHOD = "triangular"
 NUM_EPOCHS = 24
 
 # set the path to the serialized model after training
-MODEL_PATH = os.path.sep.join(["output", "fabric.model"])
+MODEL_PATH = os.path.sep.join(["fabric_defect_detection", "output", "fabric.model"])
 # define the path to the output learning rate finder plot, training
 # history plot and cyclical learning rate plot
 LRFIND_PLOT_PATH = os.path.sep.join(["output", "lrfind_plot.png"])

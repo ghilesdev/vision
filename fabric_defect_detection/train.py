@@ -1,5 +1,6 @@
 # set the matplotlib backend so figures can be saved in the background
 import matplotlib
+
 matplotlib.use("Agg")
 # import the necessary packages
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
@@ -27,8 +28,13 @@ import os
 
 # construct the argument parser and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-f", "--lr-find", type=int, default=0,
-	help="whether or not to find optimal learning rate")
+ap.add_argument(
+    "-f",
+    "--lr-find",
+    type=int,
+    default=0,
+    help="whether or not to find optimal learning rate",
+)
 args = vars(ap.parse_args())
 # grab the paths to all images in our dataset directory and initialize
 # our lists of images and class labels
@@ -59,25 +65,29 @@ lb = LabelBinarizer()
 labels = lb.fit_transform(labels)
 
 # partition the data into training and testing splits
-(trainX, testX, trainY, testY) = train_test_split(data, labels,
-	test_size=config.TEST_SPLIT, random_state=42)
+(trainX, testX, trainY, testY) = train_test_split(
+    data, labels, test_size=config.TEST_SPLIT, random_state=42
+)
 # take the validation split from the training split
-(trainX, valX, trainY, valY) = train_test_split(trainX, trainY,
-	test_size=config.VAL_SPLIT, random_state=84)
+(trainX, valX, trainY, valY) = train_test_split(
+    trainX, trainY, test_size=config.VAL_SPLIT, random_state=84
+)
 # initialize the training data augmentation object
 aug = ImageDataGenerator(
-	rotation_range=30,
-	zoom_range=0.15,
-	width_shift_range=0.2,
-	height_shift_range=0.2,
-	shear_range=0.15,
-	horizontal_flip=True,
-	fill_mode="nearest")
+    rotation_range=30,
+    zoom_range=0.15,
+    width_shift_range=0.2,
+    height_shift_range=0.2,
+    shear_range=0.15,
+    horizontal_flip=True,
+    fill_mode="nearest",
+)
 
 # load the VGG16 network, ensuring the head FC layer sets are left
 # off
-baseModel = VGG16(weights="imagenet", include_top=False,
-	input_tensor=Input(shape=(224, 224, 3)))
+baseModel = VGG16(
+    weights="imagenet", include_top=False, input_tensor=Input(shape=(224, 224, 3))
+)
 # construct the head of the model that will be placed on top of the
 # the base model
 headModel = baseModel.output
@@ -91,13 +101,14 @@ model = Model(inputs=baseModel.input, outputs=headModel)
 # loop over all layers in the base model and freeze them so they will
 # *not* be updated during the first training process
 for layer in baseModel.layers:
-	layer.trainable = False
+    layer.trainable = False
 # compile our model (this needs to be done after our setting our
 # layers to being non-trainable
 print("[INFO] compiling model...")
 opt = SGD(lr=config.MIN_LR, momentum=0.9)
-model.compile(loss="sparse_categorical_crossentropy", optimizer=opt,
-	metrics=["accuracy"])
+model.compile(
+    loss="sparse_categorical_crossentropy", optimizer=opt, metrics=["accuracy"]
+)
 
 # check to see if we are attempting to find an optimal learning rate
 # before training for the full number of epochs
@@ -108,10 +119,12 @@ if args["lr_find"] > 0:
     lrf = LearningRateFinder(model)
     lrf.find(
         aug.flow(trainX, trainY, batch_size=config.BATCH_SIZE),
-        1e-10, 1e+1,
+        1e-10,
+        1e1,
         stepsPerEpoch=np.ceil((trainX.shape[0] / float(config.BATCH_SIZE))),
         epochs=5,
-        batchSize=config.BATCH_SIZE)
+        batchSize=config.BATCH_SIZE,
+    )
 
     # plot the loss for the various learning rates and save the
     # resulting plot to disk
@@ -130,25 +143,30 @@ if args["lr_find"] > 0:
 # rate method
 stepSize = config.STEP_SIZE * (trainX.shape[0] // config.BATCH_SIZE)
 clr = CyclicLR(
-	mode=config.CLR_METHOD,
-	base_lr=config.MIN_LR,
-	max_lr=config.MAX_LR,
-	step_size=stepSize)
+    mode=config.CLR_METHOD,
+    base_lr=config.MIN_LR,
+    max_lr=config.MAX_LR,
+    step_size=stepSize,
+)
 # train the network
 print("[INFO] training network...")
 H = model.fit_generator(
-	aug.flow(trainX, trainY, batch_size=config.BATCH_SIZE),
-	validation_data=(valX, valY),
-	steps_per_epoch=trainX.shape[0] // config.BATCH_SIZE,
-	epochs=config.NUM_EPOCHS,
-	callbacks=[clr],
-	verbose=1)
+    aug.flow(trainX, trainY, batch_size=config.BATCH_SIZE),
+    validation_data=(valX, valY),
+    steps_per_epoch=trainX.shape[0] // config.BATCH_SIZE,
+    epochs=config.NUM_EPOCHS,
+    callbacks=[clr],
+    verbose=1,
+)
 
 # evaluate the network and show a classification report
 print("[INFO] evaluating network...")
 predictions = model.predict(testX, batch_size=config.BATCH_SIZE)
-print(classification_report(testY.argmax(axis=1),
-	predictions.argmax(axis=1), target_names=config.CLASSES))
+print(
+    classification_report(
+        testY.argmax(axis=1), predictions.argmax(axis=1), target_names=config.CLASSES
+    )
+)
 # serialize the model to disk
 print("[INFO] serializing network to '{}'...".format(config.MODEL_PATH))
 model.save(config.MODEL_PATH)
